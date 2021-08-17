@@ -1,0 +1,65 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+.row {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 25%;
+  max-width: 400px;
+}
+
+.form {
+  width: 100%;
+  padding: 1em 3em;
+  box-shadow: -1px 0 5px 3px rgba(0, 0, 0, 0.1);
+}
+
+.form h2 {
+  text-align: center;
+  font-weight: 600;
+}
+
+.form-control {
+  width: 100%;
+}
+
+.form-control label,
+.form-control input,
+.form-control small {
+  opacity: 0.75;
+  display: block;
+  padding-block: 0.25em;
+}
+
+.form-control input {
+  font-size: 0.8rem;
+  width: 100%;
+  padding: 0.75em 0.5em;
+  border-color: rgba(0, 0, 0, 0.25);
+}
+
+.form-control small {
+  visibility: hidden;
+}
+
+.form button {
+  width: 100%;
+  padding-block: 0.5em;
+  border-radius: 5px;
+  color: white;
+  font-size: 1.1rem;
+  background-color: #3498db;
+  margin-bottom: 0.5em;
+}

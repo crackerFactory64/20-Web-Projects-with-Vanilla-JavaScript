@@ -50,11 +50,30 @@ body {
   border-color: rgba(0, 0, 0, 0.25);
 }
 
+.form-control input:focus {
+  outline: none;
+  border-color: black;
+}
+
 .form-control small {
   visibility: hidden;
+  color: red;
+}
+
+.form-control.success input {
+  border-color: green;
+}
+
+.form-control.error input {
+  border-color: red;
+}
+
+.form-control.error small {
+  visibility: visible;
 }
 
 .form button {
+  border: 2px solid #3498db;
   width: 100%;
   padding-block: 0.5em;
   border-radius: 5px;
@@ -62,4 +81,10 @@ body {
   font-size: 1.1rem;
   background-color: #3498db;
   margin-bottom: 0.5em;
+}
+
+.form button:focus,
+.form button:hover {
+  outline: none;
+  opacity: 0.5;
 }

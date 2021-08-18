@@ -10,7 +10,7 @@
   <body>
     <div class="film-container">
       <label>Select a film:</label>
-      <select id="flim">
+      <select id="film">
         <option value="7">Citizen Kane (£7)</option>
         <option value="10">Spider-Man: Into the Spider-Verse (£10)</option>
         <option value="12">There Will Be Blood (£12)</option>
@@ -98,7 +98,10 @@
         </div>
       </div>
       <p class="total">
-        You have selected <span>0</span> seats coming to £<span>0</span>
+        You have selected <span id="seat-count">0</span> seats coming to £<span
+          id="cost"
+          >0</span
+        >
       </p>
     </div>
     <script src="script.js"></script>

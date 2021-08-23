@@ -10,7 +10,33 @@
   <body>
     <main>
       <h1>Custom Video Player</h1>
-      <video src=""></video>
+      <div class="video-container">
+        <video
+          src="video.mp4"
+          width="500"
+          height="500"
+          type="video/mp4"
+          id="video"
+          class="video"
+        ></video>
+        <div class="controls">
+          <button class="controls__play" id="play"></button>
+          <button class="controls__pause hidden" id="pause">
+            <div class="pause__line"></div>
+            <div class="pause__line"></div>
+          </button>
+          <button class="controls__stop" id="stop"></button>
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value="0"
+            id="progress"
+            class="controls__progress"
+          />
+          <p class="controls__time" id="time">0:00</p>
+        </div>
+      </div>
     </main>
     <script src="script.js"></script>
   </body>

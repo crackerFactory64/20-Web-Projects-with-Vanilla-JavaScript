@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exchange Rate Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <div class="logo-container"><img src="logo.png" class="logo" /></div>
+      <h1>Exhange Rate Calculator</h1>
+      <p class="instructions">Choose the currency and the amounts to get the exchange rate</p>
+      <div class="input-container">
+        <select id="currency1" class="currency">
+          <option value="">GBP</option>
+        </select>
+        <input type="number" id="amount1" placeholder="1" class="amount" />
+      </div class= "input-container">
+      <div class="input-container">
+        <button class="button" id="swap">Swap</button>
+        <p class="result">1 GBP = 1.37 USD</p>
+      </div>
+      <div class="input-container">
+        <select id="currency2" class="currency">
+          <option value="">GBP</option>
+          <option value="" selected>USD</option>
+        </select>
+        <input type="number" id="amount2" placeholder="1" class="amount" />
+      </div class= "input-container">
+
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

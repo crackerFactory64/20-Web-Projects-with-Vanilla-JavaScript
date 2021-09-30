@@ -48,7 +48,6 @@ function updateDOM() {
 }
 
 function formatWealth(figure) {
-  let result = "";
   let figureArray = figure.toString().split("");
 
   if (figureArray.length == 5) {
@@ -60,5 +59,5 @@ function formatWealth(figure) {
     figureArray.splice(5, 0, ",");
   }
 
-  return (result = `£${figureArray.join("")}`);
+  return `£${figureArray.join("")}`;
 }

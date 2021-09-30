@@ -30,7 +30,6 @@ async function getRandomUser() {
 }
 
 function addData(obj) {
-  console.log(obj);
   data.push(obj);
   updateDOM();
 }

@@ -97,19 +97,6 @@ function updateDOM() {
 }
 
 function formatWealth(figure) {
-  /*let figureArray = figure.toString().split("");
-
-  if (figureArray.length == 5) {
-    figureArray.splice(2, 0, ",");
-  } else if (figureArray.length == 6) {         
-    figureArray.splice(3, 0, ",");
-  } else if (figureArray.length == 7) {
-    figureArray.splice(1, 0, ",");
-    figureArray.splice(5, 0, ",");
-  }
-
-  return `£${figureArray.join("")}`;*/
-
   const wealthFormatter = new Intl.NumberFormat("en-GB", {
     style: "currency",
     currency: "GBP",

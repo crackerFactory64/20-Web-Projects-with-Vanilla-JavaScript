@@ -10,8 +10,8 @@ body {
 
 main {
   margin: 0 auto;
-  width: fit-content;
-  width: -moz-fit-content;
+  max-width: 375px;
+  width: 90%;
 }
 
 h1 {
@@ -20,14 +20,15 @@ h1 {
 
 .app {
   display: grid;
-  grid-template-columns: 2fr 3fr;
+  grid-template-columns: 1fr;
   gap: 1em;
 }
 
 .app__controls {
+  border-top: 2px solid black;
   list-style: none;
-  padding: 0 1em 0 0;
-  border-right: 2px solid black;
+  order: 2;
+  padding: 1em 0 0 0;
 }
 
 .app__controls li + li {
@@ -44,6 +45,12 @@ h1 {
   padding: 0.5em 1em;
   text-align: center;
   text-decoration: none;
+}
+
+.app__window {
+  max-height: 350px;
+  order: 1;
+  overflow: scroll;
 }
 
 .window__header,
@@ -70,8 +77,30 @@ h1 {
   border-top: 2px solid black;
   display: flex;
   justify-content: space-between;
-  margin-top: 3em;
+  margin-top: 0.5em;
   padding-block: 0.5em;
   text-align: center;
   visibility: hidden;
+}
+
+@media (min-width: 600px) {
+  main {
+    max-width: 1000px;
+  }
+
+  .app {
+    grid-template-columns: 3fr 7fr;
+  }
+
+  .app__controls,
+  .app__window {
+    max-height: 100%;
+    order: unset;
+  }
+
+  .app__controls {
+    border-right: 2px solid black;
+    border-top: none;
+    padding-right: 1em;
+  }
 }

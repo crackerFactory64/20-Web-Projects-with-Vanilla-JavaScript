@@ -15,6 +15,18 @@ doubleMoneyButton.addEventListener("click", () => {
   doubleMoney();
 });
 
+filterButton.addEventListener("click", () => {
+  filterMillionaires();
+});
+
+sortButton.addEventListener("click", () => {
+  sortByRichest();
+});
+
+calcButton.addEventListener("click", () => {
+  calculateWealth();
+});
+
 let data = [];
 
 getRandomUser();
@@ -39,6 +51,32 @@ function doubleMoney() {
   });
 
   updateDOM();
+}
+
+function sortByRichest() {
+  data = data.sort(function (a, b) {
+    return b.wealth - a.wealth;
+  });
+
+  updateDOM();
+}
+
+function filterMillionaires() {
+  data = data.filter(function (obj) {
+    return obj.wealth >= 1000000;
+  });
+
+  updateDOM();
+}
+
+function calculateWealth() {
+  let result = 0;
+  result = data.reduce(function (total, obj) {
+    return total + obj.wealth;
+  }, 0);
+
+  total.innerHTML = `<span>Total Wealth: </span>${formatWealth(result)}`;
+  total.style.visibility = "visible";
 }
 
 function addData(obj) {
@@ -72,10 +110,10 @@ function formatWealth(figure) {
 
   return `£${figureArray.join("")}`;*/
 
-  const formatter = new Intl.NumberFormat("en-GB", {
+  const wealthFormatter = new Intl.NumberFormat("en-GB", {
     style: "currency",
     currency: "GBP",
   });
 
-  return formatter.format(figure);
+  return wealthFormatter.format(figure);
 }

@@ -67,9 +67,11 @@ h1 {
 
 .app__total {
   border-bottom: 2px solid black;
+  border-top: 2px solid black;
   display: flex;
   justify-content: space-between;
-  padding-bottom: 0.5em;
+  margin-top: 3em;
+  padding-block: 0.5em;
   text-align: center;
   visibility: hidden;
 }

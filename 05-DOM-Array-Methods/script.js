@@ -54,7 +54,7 @@ function doubleMoney() {
 }
 
 function sortByRichest() {
-  data = data.sort(function (a, b) {
+  data = data.sort((a, b) => {
     return b.wealth - a.wealth;
   });
 
@@ -62,7 +62,7 @@ function sortByRichest() {
 }
 
 function filterMillionaires() {
-  data = data.filter(function (obj) {
+  data = data.filter((obj) => {
     return obj.wealth >= 1000000;
   });
 
@@ -71,7 +71,7 @@ function filterMillionaires() {
 
 function calculateWealth() {
   let result = 0;
-  result = data.reduce(function (total, obj) {
+  result = data.reduce((total, obj) => {
     return total + obj.wealth;
   }, 0);
 

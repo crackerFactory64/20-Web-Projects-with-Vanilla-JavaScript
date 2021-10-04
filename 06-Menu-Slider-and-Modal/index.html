@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu Slider and Modal</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!--Modal-->
+    <div class="modal-bg">
+      <aside class="modal" id="modal">
+        <header class="modal__header">
+          <h2 class="modal__heading">Sign Up</h2>
+          <a href="" aria-label="close" class="modal__close" id="close-modal"
+            >X</a
+          >
+        </header>
+        <form class="modal__form">
+          <label for="name" class="modal__label">Name:</label
+          ><input type="text" class="modal__input" id="name" />
+          <label for="email" class="modal__label">Email: </label
+          ><input type="email" class="modal__input" id="email" />
+          <label for="password" class="modal__label">Password:</label
+          ><input type="text" class="modal__input" id="password1" />
+          <label for="password2" class="modal__label">Confirm Password:</label
+          ><input type="text" class="modal__input" id="password2" />
+          <button type="submit" class="modal__button button">Submit</button>
+        </form>
+      </aside>
+    </div>
+    <!--Main-->
+    <aside class="menu" id="menu">
+      <div class="img-container">
+        <img src="warren.jpg" alt="warren wilson" class="menu__img" />
+      </div>
+      <ul class="menu__nav">
+        <li class="nav__item"><a href="#" class="nav__link">Home</a></li>
+        <li class="nav__item">
+          <a href="#" class="nav__link">Portfolio</a>
+        </li>
+        <li class="nav__item"><a href="#" class="nav__link">Blog</a></li>
+        <li class="nav__item">
+          <a href="#" class="nav__link">Contact Me</a>
+        </li>
+      </ul>
+    </aside>
+
+    <header class="header">
+      <div class="container">
+        <a
+          href="#"
+          class="menu-button"
+          aria-label="open/close menu"
+          id="menu-button"
+          >☰</a
+        >
+        <h1>My Landing Page</h1>
+        <h2 class="header__subheading">Lorem ipsum dolor sit amet.</h2>
+        <button class="button header__button" id="sign-up">Sign Up</button>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="container">
+        <h2 class="main__heading">Lorem ipsum dolor sit amet</h2>
+        <p class="main__text">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut beatae
+          similique, itaque veniam, animi porro incidunt sunt mollitia nemo,
+          nihil aliquid ex sint ea aspernatur sapiente quos iusto totam
+          repudiandae!
+        </p>
+        <h2 class="main__heading">Lorem, ipsum dolor</h2>
+        <p class="main__text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
+          voluptatum, id nisi magni similique nulla ipsum? Cupiditate recusandae
+          vel minima molestias minus dolorum quae neque, mollitia, et itaque,
+          placeat ex?
+        </p>
+        <h2 class="main__heading">Lorem</h2>
+        <p class="main__text">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et quam ab
+          modi, est voluptatum animi nisi? Similique incidunt necessitatibus
+          fugiat laboriosam, amet voluptatibus, quam sint excepturi hic quisquam
+          placeat omnis.
+        </p>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

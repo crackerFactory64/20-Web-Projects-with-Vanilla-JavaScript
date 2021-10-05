@@ -33,13 +33,12 @@ img {
   background-color: rgba(0, 0, 0, 0.5);
   content: "";
   display: flex;
-
-  visibility: hidden;
   justify-content: center;
   min-height: 100vh;
   min-width: 100vw;
   offset: 0;
   position: absolute;
+  visibility: hidden;
 }
 
 .modal-bg--active {
@@ -51,8 +50,8 @@ img {
   background-color: white;
   border-radius: 10px;
   opacity: 0;
-  width: 250px;
   transition: opacity ease-in 500ms;
+  width: 250px;
 }
 
 .modal--active {
@@ -119,14 +118,14 @@ img {
 .menu {
   background-color: limegreen;
   border-right: 1px solid white;
-  width: 40vw;
+  left: 0;
   min-height: 100vh;
   position: fixed;
   top: 0;
-  left: 0;
-  z-index: 10;
   transform: translateX(-100%);
   transition: transform ease 250ms;
+  width: 40vw;
+  z-index: 10;
 }
 
 .menu--open {

@@ -21,6 +21,11 @@ img {
   width: 90%;
   max-width: 375px;
   margin: 0 auto;
+  transition: ease 250ms;
+}
+
+.container--sidebar {
+  transform: translateX(41vw);
 }
 
 .modal-bg {
@@ -88,20 +93,27 @@ img {
 
 .menu-button {
   font-size: 1.5rem;
-  left: 15px;
+  left: 1vw;
   position: absolute;
-  top: 5px;
+  top: 1%;
+  transition: ease 250ms;
+}
+
+.menu-button--sidebar {
+  left: 41vw;
 }
 
 .menu {
   background-color: limegreen;
-  max-width: 20vw;
+  border-right: 1px solid white;
+  width: 40vw;
   min-height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 10;
   transform: translateX(-100%);
+  transition: ease 250ms;
 }
 
 .menu--open {
@@ -141,9 +153,21 @@ img {
     max-width: 1000px;
   }
 
+  .container--sidebar {
+    transform: translateX(21vw);
+  }
+
   .menu-button {
     font-size: 2rem;
-    left: 100px;
+    left: 1vw;
     top: 50px;
+  }
+
+  .menu-button--sidebar {
+    left: 21vw;
+  }
+
+  .menu {
+    width: 20vw;
   }
 }

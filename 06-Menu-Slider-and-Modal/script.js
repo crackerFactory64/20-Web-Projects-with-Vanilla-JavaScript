@@ -22,6 +22,14 @@ closeModal.addEventListener("click", () => {
   openCloseModal();
 });
 
+// hides modal is user clicks outside of it
+window.addEventListener("click", (e) => {
+  if (e.target == modalBG) {
+    modal.classList.remove("modal--active");
+    modalBG.classList.remove("modal-bg--active");
+  }
+});
+
 function openCloseModal() {
   modal.classList.toggle("modal--active");
   modalBG.classList.toggle("modal-bg--active");

@@ -3,14 +3,14 @@
 }
 
 body {
-  margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.25rem;
+  margin: 0;
 }
 
 a {
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
 }
 
 img {
@@ -18,10 +18,10 @@ img {
 }
 
 .container {
-  width: 90%;
-  max-width: 375px;
   margin: 0 auto;
-  transition: ease 250ms;
+  max-width: 375px;
+  transition: transform ease 250ms;
+  width: 90%;
 }
 
 .container--sidebar {
@@ -29,22 +29,34 @@ img {
 }
 
 .modal-bg {
-  display: none;
-  background-color: transparent;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
   content: "";
+  display: flex;
+
+  visibility: hidden;
+  justify-content: center;
   min-height: 100vh;
   min-width: 100vw;
   offset: 0;
   position: absolute;
-  z-index: 1000;
+}
+
+.modal-bg--active {
+  visibility: visible;
+  z-index: 10;
 }
 
 .modal {
-  margin: 0 auto;
-  width: 15vw;
-  border: 1px solid black;
+  background-color: white;
   border-radius: 10px;
-  display: none;
+  opacity: 0;
+  width: 250px;
+  transition: opacity ease-in 500ms;
+}
+
+.modal--active {
+  opacity: 1;
 }
 
 .modal__header {
@@ -59,16 +71,17 @@ img {
 }
 
 .modal__form {
-  flex-direction: column;
   display: flex;
+  flex-direction: column;
   padding: 1em;
+  gap: 0.5em;
 }
 
 .modal__input {
-  padding-block: 0.5em;
+  font-size: 1 25rem;
   margin-bottom: 1em;
-  border-top: transparent;
   outline: none;
+  padding-block: 0.25em;
 }
 
 .button {
@@ -96,7 +109,7 @@ img {
   left: 1vw;
   position: absolute;
   top: 1%;
-  transition: ease 250ms;
+  transition: left ease 250ms;
 }
 
 .menu-button--sidebar {
@@ -113,7 +126,7 @@ img {
   left: 0;
   z-index: 10;
   transform: translateX(-100%);
-  transition: ease 250ms;
+  transition: transform ease 250ms;
 }
 
 .menu--open {
@@ -169,5 +182,9 @@ img {
 
   .menu {
     width: 20vw;
+  }
+
+  .modal {
+    width: 33vw;
   }
 }

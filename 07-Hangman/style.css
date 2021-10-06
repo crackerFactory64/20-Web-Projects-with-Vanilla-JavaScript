@@ -12,6 +12,11 @@ body {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .row {
   align-items: center;
   display: flex;
@@ -34,6 +39,7 @@ body {
 .modal {
   align-items: center;
   background-color: white;
+  border-radius: 10px;
   color: cornflowerblue;
   display: flex;
   flex-direction: column;
@@ -41,7 +47,12 @@ body {
   height: 20vh;
   justify-content: center;
   padding: 1em 1em;
-  width: 20vw;
+  width: fit-content;
+  width: -moz-fit-content;
+}
+
+.modal__message--hide {
+  display: none;
 }
 
 .modal__button {
@@ -49,6 +60,7 @@ body {
   border-radius: 10em;
   border: none;
   color: white;
+  cursor: pointer;
   display: block;
   letter-spacing: 1px;
   outline: none;
@@ -61,10 +73,8 @@ h1 {
 }
 
 .game__figure {
-  border: 2px solid white;
   fill: transparent;
   margin-bottom: 2em;
-  padding: 1em;
   stroke-linecap: round;
   stroke-width: 5px;
   stroke: white;
@@ -78,6 +88,7 @@ h1 {
   align-self: start;
   letter-spacing: 1px;
   margin-left: 1em;
+  width: 15%;
 }
 
 .game__wrong h2 {

@@ -10,8 +10,16 @@
   <body>
     <div class="modal-bg">
       <aside class="modal">
-        <h2 id="game-over">You're Out of Guesses</h2>
-        <button class="modal__button" id="play-again">Play Again</button>
+        <h2 class="modal__message" id="game-over">
+          <span class="modal__loss modal__message--hide" id="loss"
+            >You're Out of Guesses</span
+          ><span class="modal__congrats modal__message--hide" id="congrats"
+            >Congratulations! You got it!</span
+          >
+        </h2>
+        <a href=""
+          ><button class="modal__button" id="play-again">Play Again</button></a
+        >
       </aside>
     </div>
     <h1>Hangman</h1>
@@ -32,6 +40,14 @@
           ></circle>
           <line
             class="figure__part"
+            id="body"
+            x1="125"
+            y1="100"
+            x2="125"
+            y2="135"
+          ></line>
+          <line
+            class="figure__part"
             id="left-arm"
             x1="125"
             y1="110"
@@ -45,14 +61,6 @@
             y1="110"
             x2="140"
             y2="130"
-          ></line>
-          <line
-            class="figure__part"
-            id="body"
-            x1="125"
-            y1="100"
-            x2="125"
-            y2="135"
           ></line>
           <line
             class="figure__part"
@@ -73,10 +81,10 @@
         </svg>
         <div class="game__wrong">
           <h2>Wrong Guesses</h2>
-          <p id="wrong-letters">A,B,D,E</p>
+          <p id="wrong-letters"></p>
         </div>
       </div>
-      <p class="game__word" id="word">C_NT</p>
+      <p class="game__word" id="word"></p>
     </div>
 
     <aside class="same-letter" id="tab">

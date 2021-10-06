@@ -63,6 +63,9 @@ function processWrongGuess(key) {
     chances--;
   } else {
     tab.classList.add("same-letter--active");
+    setTimeout(() => {
+      tab.classList.remove("same-letter--active");
+    }, 3000);
   }
 }
 

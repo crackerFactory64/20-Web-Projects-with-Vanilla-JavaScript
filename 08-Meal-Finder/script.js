@@ -20,6 +20,8 @@ searchButton.addEventListener("click", (e) => {
 });
 
 function getSearchTerm() {
+  resultsContainer.style.display = "none";
+
   if (searchInput.value !== "") {
     searchTerm = searchInput.value;
     searchError.innerHTML = "";

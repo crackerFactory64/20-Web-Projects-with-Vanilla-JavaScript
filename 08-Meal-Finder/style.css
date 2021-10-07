@@ -79,6 +79,11 @@ h1 {
   font-size: var(--fs-m);
   padding-block: 1em;
 }
+
+.results {
+  display: none;
+}
+
 .results__grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -97,7 +102,7 @@ h1 {
 
 .result__overlay {
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.66);
   cursor: pointer;
   display: flex;
   height: 100%;
@@ -118,6 +123,10 @@ h1 {
   height: 100%;
   object-fit: cover;
   width: 100%;
+}
+
+.recipe {
+  display: none;
 }
 
 .recipe__title {

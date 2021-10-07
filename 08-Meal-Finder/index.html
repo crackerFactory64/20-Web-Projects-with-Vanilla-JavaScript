@@ -14,6 +14,7 @@
         <form class="form">
           <div class="form__search-container">
             <input
+              autocomplete="off"
               type="search"
               class="search__input"
               id="search-input"
@@ -28,50 +29,39 @@
           </div>
           <button class="form__button">🔀</button>
         </form>
+        <p class="search__error" id="search-error"></p>
         <section class="results">
-          <h2 class="results__heading">Search results for 'fish and chips':</h2>
-          <div class="results__grid">
+          <h2 class="results__heading">
+            Search results for <span id="search-term">"fish and chips"</span>:
+          </h2>
+          <div class="results__grid" id="results">
             <div class="result">
               <div class="result__overlay">
-                <h2 class="result__name">Fish and Chips</h2>
+                <h2 class="result__name" id="result-name">Fish and Chips</h2>
               </div>
-              <img src="img.jpg" alt="fish and chips" class="result__img" />
-            </div>
-            <div class="result">
-              <div class="result__overlay">
-                <h2 class="result__name">Fish and Chips</h2>
-              </div>
-              <img src="img.jpg" alt="fish and chips" class="result__img" />
-            </div>
-            <div class="result">
-              <div class="result__overlay">
-                <h2 class="result__name">Fish and Chips</h2>
-              </div>
-              <img src="img.jpg" alt="fish and chips" class="result__img" />
-            </div>
-            <div class="result">
-              <div class="result__overlay">
-                <h2 class="result__name">Fish and Chips</h2>
-              </div>
-              <img src="img.jpg" alt="fish and chips" class="result__img" />
-            </div>
-            <div class="result">
-              <div class="result__overlay">
-                <h2 class="result__name">Fish and Chips</h2>
-              </div>
-              <img src="img.jpg" alt="fish and chips" class="result__img" />
+              <img
+                src="img.jpg"
+                alt="fish and chips"
+                class="result__img"
+                id="result-img"
+              />
             </div>
           </div>
         </section>
         <article class="recipe">
-          <h2 class="recipe__title">Fish and Chips</h2>
-          <img src="img.jpg" alt="fish and chips" class="recipe__img" />
+          <h2 class="recipe__title" id="recipe-title">Fish and Chips</h2>
+          <img
+            src="img.jpg"
+            alt="fish and chips"
+            class="recipe__img"
+            id="recipe-img"
+          />
           <div class="recipe__info">
-            <p class="recipe__category">Seafood</p>
+            <p class="recipe__category" id="recipe-category">Seafood</p>
             <br />
-            <p class="recipe__cuisine">British</p>
+            <p class="recipe__cuisine" id="recipe-cuisine">British</p>
           </div>
-          <p class="recipe__instructions">
+          <p class="recipe__instructions" id="recipe-instructions">
             Rinse fish; rub with lemon or lime, seasoned with salt and pepper or
             use your favorite seasoning. I used creole seasoning. Set aside or
             place in the oven to keep it warm until sauce is ready. In large
@@ -87,7 +77,7 @@
             side of this bammy. You may make the sauce about 2 days in advance.
           </p>
           <h2 class="recipe__title">Ingredients</h2>
-          <ul class="recipe__ingredients">
+          <ul class="recipe__ingredients" id="recipe-ingredients">
             <li class="recipe__ingredient">Cod</li>
             <li class="recipe__ingredient">Potatos</li>
             <li class="recipe__ingredient">Salt</li>

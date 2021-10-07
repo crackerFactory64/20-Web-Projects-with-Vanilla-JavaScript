@@ -64,6 +64,7 @@ h1 {
   background-color: var(--clr-accent);
   border-radius: 10px;
   border: none;
+  cursor: pointer;
   font-size: var(--fs-m);
   padding: 0.5em;
 }

@@ -109,6 +109,7 @@ h1 {
   justify-content: center;
   left: 0;
   opacity: 0;
+  padding: 0.25em;
   position: absolute;
   top: 0;
   transition: ease 250ms;

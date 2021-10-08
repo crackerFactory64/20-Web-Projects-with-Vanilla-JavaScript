@@ -1,5 +1,6 @@
 const searchInput = document.getElementById("search-input");
 const searchButton = document.getElementById("search-button");
+const randomButton = document.getElementById("random-button");
 const searchError = document.getElementById("search-error");
 
 const resultsContainer = document.querySelector(".results");
@@ -15,6 +16,11 @@ let resultElArr = []; //to be populated with the generated result html elements
 searchButton.addEventListener("click", (e) => {
   e.preventDefault();
   getSearchTerm();
+});
+
+randomButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  getRandomMeal();
 });
 
 function getSearchTerm() {
@@ -33,15 +39,17 @@ function getSearchTerm() {
 
 async function getResults(search) {
   results = [];
+
   const res = await fetch(
     "https://www.themealdb.com/api/json/v1/1/search.php?s=" + search
   );
+
   const data = await res.json();
   if (data.meals) {
     data.meals.forEach((meal) => {
       results.push(meal);
     });
-    updateDOM();
+    updateResults();
   } else {
     searchError.innerHTML = "No results found.";
   }
@@ -53,13 +61,14 @@ async function getResults(search) {
       for (let i = 0; i < results.length; i++) {
         if (result.id === results[i].idMeal) {
           selectMeal(results[i]);
+          window.location.replace("#recipe");
         }
       }
     });
   });
 }
 
-function updateDOM() {
+function updateResults() {
   let resultsOutput = "";
   results.forEach((meal) => {
     resultsOutput += `
@@ -78,6 +87,19 @@ function updateDOM() {
   });
   resultsContainer.style.display = "block";
   resultsEl.innerHTML = resultsOutput;
+}
+
+async function getRandomMeal() {
+  resultsContainer.style.display = "none";
+  searchInput.value = "";
+
+  const res = await fetch("https://www.themealdb.com/api/json/v1/1/random.php");
+
+  const data = await res.json();
+
+  const meal = data.meals[0];
+
+  selectMeal(meal);
 }
 
 function selectMeal(meal) {
@@ -99,12 +121,63 @@ function selectMeal(meal) {
           </p>
           <h2 class="recipe__title">Ingredients</h2>
           <ul class="recipe__ingredients">
-            <li class="recipe__ingredient">${meal.strIngredient1}</li>
-            <li class="recipe__ingredient">${meal.strIngredient2}</li>
-            <li class="recipe__ingredient">${meal.strIngredient3}</li>
-            <li class="recipe__ingredient">${meal.strIngredient4}</li>
+           ${getIngredients(meal)}
           </ul>
     `;
   recipe.style.display = "block";
-  window.location.replace("#recipe");
+}
+
+function getIngredients(meal) {
+  let ingredientsArr = [
+    meal.strIngredient1,
+    meal.strIngredient2,
+    meal.strIngredient3,
+    meal.strIngredient4,
+    meal.strIngredient5,
+    meal.strIngredient7,
+    meal.strIngredient8,
+    meal.strIngredient9,
+    meal.strIngredient10,
+    meal.strIngredient11,
+    meal.strIngredient12,
+    meal.strIngredient13,
+    meal.strIngredient14,
+    meal.strIngredient15,
+    meal.strIngredient16,
+    meal.strIngredient17,
+    meal.strIngredient18,
+    meal.strIngredient19,
+    meal.strIngredient20,
+  ];
+
+  let measureArr = [
+    meal.strMeasure1,
+    meal.strMeasure2,
+    meal.strMeasure3,
+    meal.strMeasure4,
+    meal.strMeasure5,
+    meal.strMeasure7,
+    meal.strMeasure8,
+    meal.strMeasure9,
+    meal.strMeasure10,
+    meal.strMeasure11,
+    meal.strMeasure12,
+    meal.strMeasure13,
+    meal.strMeasure14,
+    meal.strMeasure15,
+    meal.strMeasure16,
+    meal.strMeasure17,
+    meal.strMeasure18,
+    meal.strMeasure19,
+    meal.strMeasure20,
+  ];
+  ingredients = "";
+
+  for (let i = 0; i < ingredientsArr.length; i++) {
+    if (ingredientsArr[i] !== "" && ingredientsArr[i] !== null) {
+      ingredients += `<li class="recipe__ingredient">${ingredientsArr[i]} - ${measureArr[i]}</li>`;
+    }
+  }
+
+  return ingredients;
 }

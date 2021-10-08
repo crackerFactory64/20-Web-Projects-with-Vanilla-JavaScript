@@ -161,10 +161,14 @@ h1 {
 }
 
 .recipe__ingredients {
+  align-items: center;
   display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
   justify-content: center;
   list-style: none;
   margin: 0 auto;
+  max-width: 500px;
   padding: 0;
 }
 
@@ -176,8 +180,4 @@ h1 {
   font-size: var(--fs-s);
   font-weight: 700;
   padding: 0.25em;
-}
-
-.recipe__ingredient + .recipe__ingredient {
-  margin-left: 0.5em;
 }

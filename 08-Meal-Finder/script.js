@@ -11,7 +11,7 @@ const recipe = document.getElementById("recipe");
 
 let searchTerm = "";
 let results = [];
-let resultElArr = []; //to be populated with the generated result html elements
+let resultElArr = []; //to be populated with the generated .result html elements
 
 searchButton.addEventListener("click", (e) => {
   e.preventDefault();
@@ -24,6 +24,7 @@ randomButton.addEventListener("click", (e) => {
 });
 
 function getSearchTerm() {
+  //resets the page
   resultsContainer.style.display = "none";
   recipe.style.display = "none";
 
@@ -39,11 +40,9 @@ function getSearchTerm() {
 
 async function getResults(search) {
   results = [];
-
   const res = await fetch(
     "https://www.themealdb.com/api/json/v1/1/search.php?s=" + search
   );
-
   const data = await res.json();
   if (data.meals) {
     data.meals.forEach((meal) => {
@@ -53,9 +52,11 @@ async function getResults(search) {
   } else {
     searchError.innerHTML = "No results found.";
   }
-  resultsArr = document.querySelectorAll(".result"); //populates resultsArr
 
-  //adds event listener to each result element that triggers selectMeal on click
+  //populates resultsArr
+  resultsArr = document.querySelectorAll(".result");
+
+  //adds event listener to each .result element that triggers selectMeal on click
   resultsArr.forEach((result) => {
     result.addEventListener("click", () => {
       for (let i = 0; i < results.length; i++) {
@@ -171,6 +172,7 @@ function getIngredients(meal) {
     meal.strMeasure19,
     meal.strMeasure20,
   ];
+
   ingredients = "";
 
   for (let i = 0; i < ingredientsArr.length; i++) {

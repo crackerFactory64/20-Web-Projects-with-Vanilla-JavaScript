@@ -91,6 +91,7 @@ function updateResults() {
 }
 
 async function getRandomMeal() {
+  searchError.innerHTML = "";
   resultsContainer.style.display = "none";
   searchInput.value = "";
 

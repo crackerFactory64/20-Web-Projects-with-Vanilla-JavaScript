@@ -19,6 +19,7 @@ searchButton.addEventListener("click", (e) => {
 
 function getSearchTerm() {
   resultsContainer.style.display = "none";
+  recipe.style.display = "none";
 
   if (searchInput.value !== "") {
     searchTerm = searchInput.value;
@@ -105,4 +106,5 @@ function selectMeal(meal) {
           </ul>
     `;
   recipe.style.display = "block";
+  window.location.replace("#recipe");
 }

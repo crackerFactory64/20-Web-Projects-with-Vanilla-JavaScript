@@ -177,7 +177,7 @@ function getIngredients(meal) {
   ingredients = "";
 
   for (let i = 0; i < ingredientsArr.length; i++) {
-    if (ingredientsArr[i] !== "" && ingredientsArr[i] !== null) {
+    if (ingredientsArr[i]) {
       ingredients += `<li class="recipe__ingredient">${ingredientsArr[i]} - ${measureArr[i]}</li>`;
     }
   }

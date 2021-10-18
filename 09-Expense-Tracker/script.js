@@ -13,8 +13,34 @@ function validateForm() {
     error.style.visibility = "visible";
   } else {
     error.style.visibility = "hidden";
+    addNewTransaction();
   }
 }
+
+function addNewTransaction() {
+  let eventHTML = "";
+  if (amountInput.value < 0) {
+    eventHTML += `
+        <div class="history__event">
+            <button class="history__delete">X</button>
+            <p class="event__name">${nameInput.value}</p>
+            <p class="event__amount">${amountInput.value}</p>
+        </div>
+      `;
+  } else {
+    eventHTML += `
+    <div class="history__event history__event--pos">
+        <button class="history__delete">X</button>
+        <p class="event__name">${nameInput.value}</p>
+        <p class="event__amount">+${amountInput.value}</p>
+    </div>
+  `;
+  }
+
+  history.innerHTML += eventHTML;
+}
+
+function calculateBalance() {}
 
 addButton.addEventListener("click", (e) => {
   e.preventDefault();

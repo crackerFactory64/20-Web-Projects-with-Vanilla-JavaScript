@@ -31,44 +31,33 @@
         </div>
         <div class="history">
           <h2 class="title">History</h2>
-          <div class="history__events" id="history">
-            <div class="history__event history__event--pos">
-              <button class="history__delete">X</button>
-              <p class="event__name">Salary</p>
-              <p class="event__amount">£1200.00</p>
-            </div>
-            <div class="history__event history__event--neg">
-              <button class="history__delete">X</button>
-              <p class="event__name">Beer</p>
-              <p class="event__amount">£200.00</p>
-            </div>
-          </div>
-          <div class="new">
-            <h2 class="title">Add new transaction</h2>
-            <form class="new__form">
-              <label for="name" class="form__label">Transaction name</label>
-              <input
-                type="text"
-                name="name"
-                id="name"
-                placeholder="Enter name"
-                class="form__input"
-              />
-              <label for="amount" class="form__label">Amount</label>
-              <input
-                type="number"
-                name="amount"
-                id="amount"
-                placeholder="Enter amount"
-                class="form__input"
-              />
-              <p class="form__error" id="error">
-                Transaction name and amount cannout be empty. Please ensure you
-                have entered both a name and an amount and try again.
-              </p>
-              <button class="form__button" id="button">Add transaction</button>
-            </form>
-          </div>
+          <div class="history__events" id="history"></div>
+        </div>
+        <div class="new">
+          <h2 class="title">Add new transaction</h2>
+          <form class="new__form">
+            <label for="name" class="form__label">Transaction name</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Enter name"
+              class="form__input"
+            />
+            <label for="amount" class="form__label">Amount</label>
+            <input
+              type="number"
+              name="amount"
+              id="amount"
+              placeholder="Enter amount"
+              class="form__input"
+            />
+            <p class="form__error" id="error">
+              Transaction name and amount cannout be empty. Please ensure you
+              have entered both a name and an amount and try again.
+            </p>
+            <button class="form__button" id="button">Add transaction</button>
+          </form>
         </div>
       </div>
     </main>

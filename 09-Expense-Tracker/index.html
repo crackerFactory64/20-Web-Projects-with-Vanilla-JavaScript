@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <div class="container">
+        <h1 class="title">Expense Tracker</h1>
+        <div class="balance">
+          <h2 class="balance__title">Balance</h2>
+          <p class="balance__sum">£0.00</p>
+        </div>
+        <div class="tracker">
+          <div class="income">
+            <h2 class="tracker__title"></h2>
+            <p class="tracker__sum tracker__sum--income"></p>
+          </div>
+          <div class="expense">
+            <h2 class="tracker__title"></h2>
+            <p class="tracker__sum tracker__sum--expense"></p>
+          </div>
+        </div>
+        <div class="history">
+          <h2 class="title">History</h2>
+          <div class="history__events">
+            <div class="history__event history__event--pos">
+              <p class="event__name">Salary</p>
+              <p class="event__amount">£1200.00</p>
+            </div>
+            <div class="history__event history__event--neg">
+              <p class="event__name">Beer</p>
+              <p class="event__amount">£200.00</p>
+            </div>
+          </div>
+          <div class="new">
+            <h2 class="title">Add new transaction</h2>
+            <form class="new__form">
+              <label for="name" class="form__label">Transaction name</label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Enter name"
+              />
+              <label for="amount" class="form__label">Amount</label>
+              <input
+                type="number"
+                name="amount"
+                id="amount"
+                placeholder="Enter amount"
+              />
+              <p class="form__error"></p>
+              <button type="submit" class="form__button">
+                Add transaction
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

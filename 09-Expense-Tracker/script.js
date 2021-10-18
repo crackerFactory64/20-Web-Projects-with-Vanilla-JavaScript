@@ -1,4 +1,4 @@
-const balance = document.getElementById("balance");
+const balanceEl = document.getElementById("balance");
 const income = document.getElementById("income");
 const expense = document.getElementById("expense");
 const history = document.getElementById("history");
@@ -38,9 +38,25 @@ function addNewTransaction() {
   }
 
   history.innerHTML += eventHTML;
+  calculateBalance();
 }
 
-function calculateBalance() {}
+function calculateBalance() {
+  let balance = balanceEl.innerHTML.toString().split("");
+  balance.splice(0, 1);
+  let balanceNum = parseFloat(balance.join(""));
+  let newBalance = balanceNum + parseFloat(amountInput.value);
+  balanceEl.innerHTML = formatMoney(newBalance);
+}
+
+function formatMoney(figure) {
+  const moneyFormatter = new Intl.NumberFormat("en-GB", {
+    style: "currency",
+    currency: "GBP",
+  });
+
+  return moneyFormatter.format(figure);
+}
 
 addButton.addEventListener("click", (e) => {
   e.preventDefault();

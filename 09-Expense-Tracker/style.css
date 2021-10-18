@@ -7,6 +7,18 @@
   margin: 0;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fafafa;
+}
+
+::-webkit-scrollbar-thumb {
+  background: orangered;
+}
+
 body {
   background-color: #fafafa;
   display: flex;
@@ -91,7 +103,7 @@ body {
 }
 
 .history__events {
-  max-height: 33vh;
+  max-height: 25vh;
   overflow-y: auto;
   padding-inline: 1em;
 }

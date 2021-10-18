@@ -13,26 +13,32 @@
         <h1 class="title centered">Expense Tracker</h1>
         <div class="balance">
           <h2 class="balance__title">Balance</h2>
-          <p class="balance__sum balance__sum--pos">£1000.00</p>
+          <p class="balance__sum balance__sum--pos" id="balance">£1000.00</p>
           <div class="balance__tracker">
             <div class="tracker__div">
               <h2 class="tracker__title">Income</h2>
-              <p class="tracker__sum tracker__sum--income">£1200.00</p>
+              <p class="tracker__sum tracker__sum--income" id="income">
+                £1200.00
+              </p>
             </div>
             <div class="tracker__div">
               <h2 class="tracker__title">Expense</h2>
-              <p class="tracker__sum tracker__sum--expense">£200.00</p>
+              <p class="tracker__sum tracker__sum--expense" id="expense">
+                £200.00
+              </p>
             </div>
           </div>
         </div>
         <div class="history">
           <h2 class="title">History</h2>
-          <div class="history__events">
+          <div class="history__events" id="history">
             <div class="history__event history__event--pos">
+              <button class="history__delete">X</button>
               <p class="event__name">Salary</p>
               <p class="event__amount">£1200.00</p>
             </div>
             <div class="history__event history__event--neg">
+              <button class="history__delete">X</button>
               <p class="event__name">Beer</p>
               <p class="event__amount">£200.00</p>
             </div>
@@ -56,10 +62,11 @@
                 placeholder="Enter amount"
                 class="form__input"
               />
-              <p class="form__error"></p>
-              <button type="submit" class="form__button">
-                Add transaction
-              </button>
+              <p class="form__error" id="error">
+                Transaction name and amount cannout be empty. Please ensure you
+                have entered both a name and an amount and try again.
+              </p>
+              <button class="form__button" id="button">Add transaction</button>
             </form>
           </div>
         </div>

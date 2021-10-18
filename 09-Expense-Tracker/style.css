@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  background-color: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+}
+
+.container {
+  max-width: 350px;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.centered {
+  text-align: center;
+}
+
+.app {
+  background-color: white;
+  padding: 2em;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.75);
+  border-radius: 1em;
+}
+
+.app div {
+  margin-block: 1em;
+}
+
+.title {
+  font-size: 1.5rem;
+}
+
+.balance__title {
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.balance__sum {
+  margin: 0;
+  font-size: 2rem;
+  color: red;
+}
+
+.balance__sum--pos {
+  color: green;
+}
+
+.balance__tracker {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #fafafa;
+  padding: 1em;
+}
+
+.tracker__div {
+  padding: 1em 2em;
+}
+
+.tracker__div:first-of-type {
+  border-right: 1px solid black;
+}
+
+.tracker__title {
+  text-transform: uppercase;
+}
+
+.tracker__sum {
+  font-size: 1.75rem;
+}
+
+.tracker__sum--income {
+  color: green;
+}
+
+.tracker__sum--expense {
+  color: red;
+}
+
+.history__event {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  background-color: #fafafa;
+  margin-bottom: 1em;
+}
+
+.history__event--pos {
+  border-right: 5px solid green;
+}
+.history__event--neg {
+  border-right: 5px solid red;
+}
+
+.new__form {
+  width: 100%;
+}
+
+.form__label {
+  display: block;
+  margin-block: 1em 0.25em;
+}
+
+.form__input {
+  width: 100%;
+  padding: 0.5em;
+}
+
+.form__button {
+  display: block;
+  width: 100%;
+  margin-top: 1em;
+  padding: 1em;
+  text-transform: uppercase;
+  background-color: orangered;
+  color: white;
+  border: none;
+  border-radius: 10em;
+  cursor: pointer;
+}
+
+.form__button:hover,
+.form__button:focus {
+  background-color: #fafafa;
+  color: orangered;
+}
+
+@media (min-width: 800px) {
+  .container {
+    max-width: 1000px;
+  }
+}

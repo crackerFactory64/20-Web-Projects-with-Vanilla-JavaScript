@@ -10,19 +10,19 @@
   <body>
     <main class="app">
       <div class="container">
-        <h1 class="title">Expense Tracker</h1>
+        <h1 class="title centered">Expense Tracker</h1>
         <div class="balance">
           <h2 class="balance__title">Balance</h2>
-          <p class="balance__sum">£0.00</p>
-        </div>
-        <div class="tracker">
-          <div class="income">
-            <h2 class="tracker__title"></h2>
-            <p class="tracker__sum tracker__sum--income"></p>
-          </div>
-          <div class="expense">
-            <h2 class="tracker__title"></h2>
-            <p class="tracker__sum tracker__sum--expense"></p>
+          <p class="balance__sum balance__sum--pos">£1000.00</p>
+          <div class="balance__tracker">
+            <div class="tracker__div">
+              <h2 class="tracker__title">Income</h2>
+              <p class="tracker__sum tracker__sum--income">£1200.00</p>
+            </div>
+            <div class="tracker__div">
+              <h2 class="tracker__title">Expense</h2>
+              <p class="tracker__sum tracker__sum--expense">£200.00</p>
+            </div>
           </div>
         </div>
         <div class="history">
@@ -46,6 +46,7 @@
                 name="name"
                 id="name"
                 placeholder="Enter name"
+                class="form__input"
               />
               <label for="amount" class="form__label">Amount</label>
               <input
@@ -53,6 +54,7 @@
                 name="amount"
                 id="amount"
                 placeholder="Enter amount"
+                class="form__input"
               />
               <p class="form__error"></p>
               <button type="submit" class="form__button">

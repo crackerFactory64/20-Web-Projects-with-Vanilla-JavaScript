@@ -1,12 +1,16 @@
 const balanceEl = document.getElementById("balance");
-const income = document.getElementById("income");
-const expense = document.getElementById("expense");
+const incomeEl = document.getElementById("income");
+const expenseEl = document.getElementById("expense");
 const history = document.getElementById("history");
 const deleteButtons = document.getElementsByClassName("history__delete");
 const nameInput = document.getElementById("name");
 const amountInput = document.getElementById("amount");
 const error = document.getElementById("error");
 const addButton = document.getElementById("button");
+
+let balance = 0;
+let income = 0;
+let expense = 0;
 
 function validateForm() {
   if (!nameInput.value || !amountInput.value) {
@@ -18,35 +22,58 @@ function validateForm() {
 }
 
 function addNewTransaction() {
+  let name = nameInput.value.trim();
+  let amount = formatMoney(amountInput.value.trim());
   let eventHTML = "";
   if (amountInput.value < 0) {
     eventHTML += `
         <div class="history__event">
             <button class="history__delete">X</button>
-            <p class="event__name">${nameInput.value}</p>
-            <p class="event__amount">${amountInput.value}</p>
+            <p class="event__name">${name}</p>
+            <p class="event__amount">${amount}</p>
         </div>
       `;
   } else {
     eventHTML += `
-    <div class="history__event history__event--pos">
+      <div class="history__event history__event--pos">
         <button class="history__delete">X</button>
-        <p class="event__name">${nameInput.value}</p>
-        <p class="event__amount">+${amountInput.value}</p>
-    </div>
-  `;
+        <p class="event__name">${name}</p>
+        <p class="event__amount">+${amount}</p>
+      </div>
+    `;
   }
 
   history.innerHTML += eventHTML;
-  calculateBalance();
+  calculateTotals();
 }
 
-function calculateBalance() {
-  let balance = balanceEl.innerHTML.toString().split("");
-  balance.splice(0, 1);
-  let balanceNum = parseFloat(balance.join(""));
-  let newBalance = balanceNum + parseFloat(amountInput.value);
-  balanceEl.innerHTML = formatMoney(newBalance);
+function calculateTotals() {
+  let input = parseFloat(amountInput.value.trim());
+
+  balance = balance + input;
+
+  if (input > 0) {
+    income = income + input;
+  } else {
+    expense = expense + input;
+  }
+
+  updateDOM();
+}
+
+function updateDOM() {
+  if (balance >= 0) {
+    balanceEl.classList.add("balance__sum--pos");
+  } else {
+    balanceEl.classList.remove("balance__sum--pos");
+  }
+
+  balanceEl.innerHTML = formatMoney(balance);
+  incomeEl.innerHTML = formatMoney(income);
+  expenseEl.innerHTML = formatMoney(expense).replace(/-/g, "");
+
+  nameInput.value = "";
+  amountInput.value = "";
 }
 
 function formatMoney(figure) {

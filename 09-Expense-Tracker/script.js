@@ -29,7 +29,6 @@ function addNewTransaction() {
   };
 
   transactions.push(transaction);
-  console.log(transactions);
 
   populateHistory();
   /*if (amountInput.value < 0) {
@@ -83,11 +82,26 @@ function populateHistory() {
 
 function calculateTotals() {
   let amounts = transactions.map((transaction) => transaction.amount);
-  console.log(amounts);
   let balance = amounts.reduce((total, amount) => {
     return (total += amount);
   });
   balanceEl.innerHTML = formatMoney(balance);
+
+  let income = amounts.filter((amount) => amount >= 0);
+  if (income.length > 0) {
+    income = income.reduce((total, amount) => {
+      return (total += amount);
+    });
+    incomeEl.innerHTML = formatMoney(income);
+  }
+
+  let expense = amounts.filter((amount) => amount < 0);
+  if (expense.length > 0) {
+    expense = expense.reduce((total, amount) => {
+      return (total += amount);
+    });
+    expenseEl.innerHTML = formatMoney(expense * -1);
+  }
 }
 /*
 function updateDOM() {

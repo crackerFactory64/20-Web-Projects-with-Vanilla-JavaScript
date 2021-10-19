@@ -31,26 +31,6 @@ function addNewTransaction() {
   transactions.push(transaction);
 
   populateHistory();
-  /*if (amountInput.value < 0) {
-    eventHTML += `
-        <div class="history__event">
-            <button class="history__delete">X</button>
-            <p class="event__name">${name}</p>
-            <p class="event__amount">${amount}</p>
-        </div>
-      `;
-  } else {
-    eventHTML += `
-      <div class="history__event history__event--pos">
-        <button class="history__delete">X</button>
-        <p class="event__name">${name}</p>
-        <p class="event__amount">+${amount}</p>
-      </div>
-    `;
-  }
-
-  history.innerHTML += eventHTML;
-  calculateTotals();*/
 }
 
 function populateHistory() {
@@ -103,21 +83,6 @@ function calculateTotals() {
     expenseEl.innerHTML = formatMoney(expense * -1);
   }
 }
-/*
-function updateDOM() {
-  if (balance >= 0) {
-    balanceEl.classList.add("balance__sum--pos");
-  } else {
-    balanceEl.classList.remove("balance__sum--pos");
-  }
-
-  balanceEl.innerHTML = formatMoney(balance);
-  incomeEl.innerHTML = formatMoney(income);
-  expenseEl.innerHTML = formatMoney(expense).replace(/-/g, "");
-
-  nameInput.value = "";
-  amountInput.value = "";
-}*/
 
 function formatMoney(figure) {
   const moneyFormatter = new Intl.NumberFormat("en-GB", {

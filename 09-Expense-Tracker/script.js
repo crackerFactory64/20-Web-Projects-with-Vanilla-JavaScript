@@ -87,7 +87,6 @@ function calculateTotals() {
   let balance = amounts.reduce((total, amount) => {
     return (total += amount);
   });
-
   balanceEl.innerHTML = formatMoney(balance);
 }
 /*

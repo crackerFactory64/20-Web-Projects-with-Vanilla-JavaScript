@@ -8,7 +8,17 @@ const amountInput = document.getElementById("amount");
 const error = document.getElementById("error");
 const addButton = document.getElementById("button");
 
+const localStorageTransactions = JSON.parse(
+  localStorage.getItem("transactions")
+);
+
 let transactions = [];
+
+if (localStorageTransactions) {
+  transactions = localStorageTransactions;
+}
+
+populateHistory();
 
 function validateForm() {
   if (!nameInput.value || !amountInput.value) {
@@ -16,6 +26,8 @@ function validateForm() {
   } else {
     error.style.visibility = "hidden";
     addNewTransaction();
+    nameInput.value = "";
+    amountInput.value = "";
   }
 }
 
@@ -60,6 +72,7 @@ function populateHistory() {
     }
   });
 
+  localStorage.setItem("transactions", JSON.stringify(transactions));
   history.innerHTML = output;
   calculateTotals();
 }

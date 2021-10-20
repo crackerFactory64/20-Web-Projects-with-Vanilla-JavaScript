@@ -73,7 +73,6 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #fafafa;
-  padding: 1em;
 }
 
 .tracker__div {
@@ -83,7 +82,7 @@ body {
 }
 
 .tracker__div:first-of-type {
-  border-right: 1px solid black;
+  border-right: 2.5px solid black;
 }
 
 .tracker__title {
@@ -103,7 +102,7 @@ body {
 }
 
 .history__events {
-  max-height: 25vh;
+  height: 25vh;
   overflow-y: auto;
   padding-inline: 1em;
 }
@@ -147,7 +146,7 @@ body {
 
 .form__label {
   display: block;
-  margin-block: 1em 0.25em;
+  margin-block: 1.1em 0.25em;
 }
 
 .form__input {

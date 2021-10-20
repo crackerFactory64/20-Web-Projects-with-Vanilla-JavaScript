@@ -23,7 +23,7 @@ function addNewTransaction() {
   let name = nameInput.value.trim();
   let amount = amountInput.value.trim();
   let transaction = {
-    ID: Math.floor(Math.random() * 1000000),
+    id: Math.floor(Math.random() * 1000000),
     name: name,
     amount: parseFloat(amount),
   };
@@ -40,7 +40,9 @@ function populateHistory() {
     if (transaction.amount < 0) {
       output += `
         <div class="history__event">
-          <p class="history__delete">X</p>
+          <p class="history__delete" onclick="deleteEvent(${
+            transaction.id
+          })">X</p>
           <p>${transaction.name}</p>
           <p>${formatMoney(transaction.amount)}</p>
         </div>
@@ -48,7 +50,9 @@ function populateHistory() {
     } else {
       output += `
         <div class="history__event history__event--pos">
-          <p class="history__delete">X</p>
+          <p class="history__delete" onclick="deleteEvent(${
+            transaction.id
+          })">X</p>
           <p>${transaction.name}</p>
           <p>+${formatMoney(transaction.amount)}</p>
         </div>
@@ -62,10 +66,14 @@ function populateHistory() {
 
 function calculateTotals() {
   let amounts = transactions.map((transaction) => transaction.amount);
-  let balance = amounts.reduce((total, amount) => {
-    return (total += amount);
-  });
-  balanceEl.innerHTML = formatMoney(balance);
+  if (amounts.length > 0) {
+    let balance = amounts.reduce((total, amount) => {
+      return (total += amount);
+    });
+    balanceEl.innerHTML = formatMoney(balance);
+  } else {
+    balanceEl.innerHTML = formatMoney(0);
+  }
 
   let income = amounts.filter((amount) => amount >= 0);
   if (income.length > 0) {
@@ -73,6 +81,8 @@ function calculateTotals() {
       return (total += amount);
     });
     incomeEl.innerHTML = formatMoney(income);
+  } else {
+    incomeEl.innerHTML = formatMoney(0);
   }
 
   let expense = amounts.filter((amount) => amount < 0);
@@ -81,6 +91,8 @@ function calculateTotals() {
       return (total += amount);
     });
     expenseEl.innerHTML = formatMoney(expense * -1);
+  } else {
+    expenseEl.innerHTML = formatMoney(0);
   }
 }
 
@@ -91,6 +103,12 @@ function formatMoney(figure) {
   });
 
   return moneyFormatter.format(figure);
+}
+
+function deleteEvent(eventId) {
+  transactions.splice(transactions.indexOf(eventId), 1);
+  populateHistory();
+  calculateTotals();
 }
 
 addButton.addEventListener("click", (e) => {

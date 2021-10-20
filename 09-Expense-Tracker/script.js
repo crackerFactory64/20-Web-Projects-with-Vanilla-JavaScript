@@ -34,6 +34,7 @@ function validateForm() {
 function addNewTransaction() {
   let name = nameInput.value.trim();
   let amount = amountInput.value.trim();
+
   let transaction = {
     id: Math.floor(Math.random() * 1000000),
     name: name,

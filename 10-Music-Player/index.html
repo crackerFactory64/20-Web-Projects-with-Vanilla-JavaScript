@@ -15,15 +15,25 @@
     <main class="app">
       <h1 class="title">Music Player</h1>
       <div class="player-container">
-        <div class="player__song-info"></div>
+        <div class="player__song-info player__song-info--hide"></div>
         <div class="player__controls">
           <div class="controls__img-container">
             <img src="images/ukulele.jpg" alt="ukulele" class="controls__img" />
             <div class="controls__disc-center"></div>
           </div>
-          <i class="fas fa-fast-backward"></i>
-          <i class="fas fa-play"></i>
-          <i class="fas fa-fast-forward"></i>
+          <button class="controls__control">
+            <i class="fas fa-fast-backward"></i>
+          </button>
+          <button class="controls__control">
+            <i class="fas fa-play"></i>
+          </button>
+          </button>
+          <button class="controls__control--hide">
+            <i class="fas fa-pause"></i>
+          </button>
+          <button class="controls__control">
+            <i class="fas fa-fast-forward"></i>
+          </button>
         </div>
       </div>
     </main>

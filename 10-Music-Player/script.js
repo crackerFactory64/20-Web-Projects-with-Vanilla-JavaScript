@@ -13,20 +13,27 @@ const summer = "music/summer.mp3";
 
 const songs = [ukulele, hey, summer];
 
-function spin() {
-  const animation = [{ transform: "rotate(360deg)" }];
-  const duration = { duration: 1800, iterations: Infinity };
-
-  albumArt.animate(animation, duration);
-}
-
-play.addEventListener("click", () => {
-  spin();
-  audio.src = songs[0];
-  titleEl.innerHTML = "Ukulele";
-  audio.play();
-});
+let spin = "";
 
 audio.ontimeupdate = () => {
   progressEl.style.width = `${audio.currentTime / (audio.duration * 0.01)}%`;
 };
+
+play.addEventListener("click", () => {
+  spin = albumArt.animate([{ transform: "rotate(360deg)" }], {
+    duration: 1800,
+    iterations: Infinity,
+  });
+  audio.src = songs[0];
+  titleEl.innerHTML = "Ukulele";
+  audio.play();
+  play.classList.add("controls__control--hide");
+  pause.classList.remove("controls__control--hide");
+});
+
+pause.addEventListener("click", () => {
+  audio.pause();
+  spin.cancel();
+  play.classList.remove("controls__control--hide");
+  pause.classList.add("controls__control--hide");
+});

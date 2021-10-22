@@ -47,10 +47,13 @@ img {
   border-top-right-radius: 1em;
   width: 90%;
   min-height: 5em;
+  transform: translateY(0);
+  transition: ease 500ms;
 }
 
 .player__song-info--hide {
-  visibility: hidden;
+  transform: translateY(100%);
+  opacity: 0;
 }
 
 .player__song-title {

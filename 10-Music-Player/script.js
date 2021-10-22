@@ -66,7 +66,7 @@ play.addEventListener("click", () => {
 
 pause.addEventListener("click", () => {
   audio.pause();
-  spin.cancel();
+  spin.pause();
   songInfo.classList.add("player__song-info--hide");
   play.classList.remove("controls__control--hide");
   pause.classList.add("controls__control--hide");

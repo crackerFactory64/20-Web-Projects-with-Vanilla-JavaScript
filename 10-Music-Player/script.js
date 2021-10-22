@@ -26,3 +26,7 @@ play.addEventListener("click", () => {
   titleEl.innerHTML = "Ukulele";
   audio.play();
 });
+
+audio.ontimeupdate = () => {
+  progressEl.style.width = `${audio.currentTime / (audio.duration * 0.01)}%`;
+};

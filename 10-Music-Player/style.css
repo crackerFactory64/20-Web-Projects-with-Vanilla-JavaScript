@@ -70,11 +70,11 @@ img {
 
 .player__progress {
   background-color: yellow;
-  border-bottom-left-radius: 10em;
+  border-radius: 10em;
   border-top-left-radius: 10em;
   height: 100%;
   margin: 0;
-  width: 50%;
+  width: 0%;
 }
 
 .player__controls {

@@ -12,10 +12,16 @@
     ></script>
   </head>
   <body>
-    <main class="app">
-      <h1 class="title">Music Player</h1>
-      <div class="player-container">
-        <div class="player__song-info player__song-info--hide"></div>
+      <main class="app">
+        <audio src="music/ukulele.mp3" id="audio"></audio>
+        <h1 class="title">Music Player</h1>
+        <div class="player-container">
+        <div class="player__song-info ">
+          <h2 class="player__song-title" id="title"></h2>
+          <div class="player__progress-container" id="progress-container">
+            <div class="player__progress" id="progress"></div>
+          </div>
+        </div>
         <div class="player__controls">
           <div class="controls__img-container" id="album-art">
             <img src="images/ukulele.jpg" alt="ukulele" class="controls__img" />

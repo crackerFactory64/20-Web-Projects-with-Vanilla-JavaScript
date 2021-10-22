@@ -53,6 +53,30 @@ img {
   visibility: hidden;
 }
 
+.player__song-title {
+  color: rgba(0, 0, 0, 0.4);
+  margin-left: auto;
+  width: 55%;
+}
+
+.player__progress-container {
+  background-color: #fff;
+  border-radius: 10em;
+  height: 10px;
+  margin-left: auto;
+  padding: 0;
+  width: 55%;
+}
+
+.player__progress {
+  background-color: yellow;
+  border-bottom-left-radius: 10em;
+  border-top-left-radius: 10em;
+  height: 100%;
+  margin: 0;
+  width: 50%;
+}
+
 .player__controls {
   background-color: rgba(255, 255, 255, 0.5);
   box-shadow: 0 10px 1em rgba(0, 0, 0, 0.5);

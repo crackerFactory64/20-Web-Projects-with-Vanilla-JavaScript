@@ -36,7 +36,7 @@ function playSong() {
 
 function skipSong(direction) {
   direction == "forwards" ? currentSong++ : currentSong--;
-  if (currentSong == songs.length) {
+  if (currentSong > songs.length - 1) {
     currentSong = 0;
   }
   if (currentSong < 0) {

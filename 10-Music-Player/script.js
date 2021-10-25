@@ -13,18 +13,13 @@ const songs = [
   { title: "Hey", art: "images/hey.jpg", audio: "music/hey.mp3" },
   { title: "Summer", art: "images/summer.jpg", audio: "music/summer.mp3" },
 ];
-
 let currentSong = 0;
-
-let spin = "";
 
 loadSong();
 
 function loadSong() {
   audio.src = songs[currentSong].audio;
-
   titleEl.innerHTML = songs[currentSong].title;
-
   albumArt.innerHTML = ` 
     <img src=${songs[currentSong].art} alt="${songs[currentSong].title}" class="controls__img" />
       <div class="controls__disc-center"></div>
@@ -32,33 +27,21 @@ function loadSong() {
 }
 
 function playSong() {
-  if (spin) {
-    spin.cancel();
-  }
-
-  songInfo.classList.remove("player__song-info--hide");
-
-  spin = albumArt.animate([{ transform: "rotate(360deg)" }], {
-    duration: 1800,
-    iterations: Infinity,
-  });
-
   audio.play();
+  songInfo.classList.remove("player__song-info--hide");
   play.classList.add("controls__control--hide");
   pause.classList.remove("controls__control--hide");
+  albumArt.classList.add("controls__img-container--playing");
 }
 
 function skipSong(direction) {
   direction == "forwards" ? currentSong++ : currentSong--;
-
   if (currentSong == 3) {
     currentSong = 0;
   }
-
   if (currentSong < 0) {
     currentSong = 2;
   }
-
   loadSong();
 }
 
@@ -77,10 +60,10 @@ play.addEventListener("click", () => {
 
 pause.addEventListener("click", () => {
   audio.pause();
-  spin.pause();
   songInfo.classList.add("player__song-info--hide");
   play.classList.remove("controls__control--hide");
   pause.classList.add("controls__control--hide");
+  albumArt.classList.remove("controls__img-container--playing");
 });
 
 skipBack.addEventListener("click", () => {

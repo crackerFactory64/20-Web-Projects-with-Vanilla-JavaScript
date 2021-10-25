@@ -66,6 +66,11 @@ audio.ontimeupdate = () => {
   progressEl.style.width = `${audio.currentTime / (audio.duration * 0.01)}%`;
 };
 
+audio.onended = () => {
+  skipSong("forwards");
+  playSong();
+};
+
 play.addEventListener("click", () => {
   playSong();
 });

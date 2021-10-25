@@ -6,6 +6,7 @@ const skipFoward = document.getElementById("skip-f");
 const audio = document.getElementById("audio");
 const songInfo = document.getElementById("song-info");
 const titleEl = document.getElementById("title");
+const progressBar = document.getElementById("progress-container");
 const progressEl = document.getElementById("progress");
 
 const songs = [
@@ -45,9 +46,19 @@ function skipSong(direction) {
   loadSong();
 }
 
+function setProgress(e) {
+  const width = this.clientWidth;
+  const clickX = e.offsetX;
+  const duration = audio.duration;
+
+  audio.currentTime = (clickX / width) * duration;
+}
+
 audio.ontimeupdate = () => {
   progressEl.style.width = `${audio.currentTime / (audio.duration * 0.01)}%`;
 };
+
+progressBar.addEventListener("click", setProgress);
 
 audio.onended = () => {
   skipSong("forwards");

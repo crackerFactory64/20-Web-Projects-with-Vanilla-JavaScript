@@ -78,6 +78,7 @@ img {
   border-top-left-radius: 10em;
   height: 100%;
   margin: 0;
+  transition: width linear 0.1s;
   width: 0%;
 }
 

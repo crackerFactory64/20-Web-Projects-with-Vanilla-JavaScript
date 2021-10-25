@@ -65,6 +65,7 @@ img {
 .player__progress-container {
   background-color: #fff;
   border-radius: 10em;
+  cursor: pointer;
   height: 10px;
   margin-left: auto;
   padding: 0;

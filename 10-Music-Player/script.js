@@ -36,11 +36,11 @@ function playSong() {
 
 function skipSong(direction) {
   direction == "forwards" ? currentSong++ : currentSong--;
-  if (currentSong == 3) {
+  if (currentSong == songs.length) {
     currentSong = 0;
   }
   if (currentSong < 0) {
-    currentSong = 2;
+    currentSong = songs.length - 1;
   }
   loadSong();
 }
@@ -70,6 +70,7 @@ skipBack.addEventListener("click", () => {
   skipSong("backwards");
   playSong();
 });
+
 skipFoward.addEventListener("click", () => {
   skipSong("forwards");
   playSong();

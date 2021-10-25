@@ -18,21 +18,25 @@ let currentSong = 0;
 
 let spin = "";
 
+loadSong();
+
+function loadSong() {
+  audio.src = songs[currentSong].audio;
+
+  titleEl.innerHTML = songs[currentSong].title;
+
+  albumArt.innerHTML = ` 
+    <img src=${songs[currentSong].art} alt="${songs[currentSong].title}" class="controls__img" />
+      <div class="controls__disc-center"></div>
+    </div>`;
+}
+
 function playSong() {
   if (spin) {
     spin.cancel();
   }
 
-  audio.src = songs[currentSong].audio;
-
-  titleEl.innerHTML = songs[currentSong].title;
-
   songInfo.classList.remove("player__song-info--hide");
-
-  albumArt.innerHTML = ` 
-    <img src=${songs[currentSong].art} alt="${songs[currentSong].title}" class="controls__img" />
-    <div class="controls__disc-center"></div>
-  </div>`;
 
   spin = albumArt.animate([{ transform: "rotate(360deg)" }], {
     duration: 1800,
@@ -54,6 +58,8 @@ function skipSong(direction) {
   if (currentSong < 0) {
     currentSong = 2;
   }
+
+  loadSong();
 }
 
 audio.ontimeupdate = () => {

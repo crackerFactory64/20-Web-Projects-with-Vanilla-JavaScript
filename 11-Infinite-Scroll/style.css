@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+
+:root {
+  --clr-primary: #69f542;
+  --clr-secondary: #378222;
+
+  --fs-l: 1.75rem;
+  --fs-m: 1.2rem;
+  --fs-s: 0.9rem;
+
+  --border-radius: 10px;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: linear-gradient(var(--clr-secondary), var(--clr-primary));
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: var(--fs-m);
+  min-height: 100vh;
+}
+
+.container {
+  width: 90%;
+  max-width: 370px;
+  margin: 0 auto;
+}
+
+.main {
+  padding-block: 3em;
+}
+
+.main__title {
+  display: block;
+  margin: 0 auto 1em auto;
+  width: fit-content;
+  width: -moz-fit-content;
+}
+
+.main__search-form {
+  width: 100%;
+  display: flex;
+  background-color: #fff;
+  border-radius: var(--border-radius);
+}
+
+.form__search-bar {
+  padding: 1em;
+  width: 100%;
+  border: none;
+  border-top-left-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
+  font-size: var(--fs-m);
+}
+
+.form__button {
+  background-color: var(--clr-secondary);
+  border: none;
+  border-top-right-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+  color: #fafafa;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: var(--fs-s);
+  cursor: pointer;
+}
+
+.form__button:hover,
+.form__button:focus {
+  background-color: var(--clr-primary);
+}
+
+.main__posts {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  padding-top: 3em;
+}
+
+.post {
+  background-color: #fff;
+  color: var(--clr-secondary);
+  padding: 1em;
+  border-radius: 1em;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+.post__id {
+  position: absolute;
+  top: -5%;
+  left: -2.5%;
+  background-color: var(--clr-secondary);
+  color: #fff;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  width: 2em;
+  display: grid;
+  place-items: center;
+  font-size: var(--fs-s);
+}
+
+.post__title {
+  font-size: var(--fs-l);
+}
+
+.post__body {
+  font-size: var(--fs-m);
+}
+
+@media (min-width: 1000px) {
+  :root {
+    --fs-l: 2rem;
+    --fs-m: 1.5rem;
+    --fs-s: 1.1rem;
+  }
+  .container {
+    max-width: 1200px;
+  }
+
+  .post__id {
+    left: -1%;
+  }
+}

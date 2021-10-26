@@ -7,8 +7,6 @@
   --fs-l: 1.75rem;
   --fs-m: 1.2rem;
   --fs-s: 0.9rem;
-
-  --border-radius: 10px;
 }
 
 *,
@@ -39,41 +37,16 @@ body {
 .main__title {
   display: block;
   margin: 0 auto 1em auto;
-  width: fit-content;
   width: -moz-fit-content;
-}
-
-.main__search-form {
-  width: 100%;
-  display: flex;
-  background-color: #fff;
-  border-radius: var(--border-radius);
+  width: fit-content;
 }
 
 .form__search-bar {
+  border-radius: 10px;
+  border: none;
+  font-size: var(--fs-m);
   padding: 1em;
   width: 100%;
-  border: none;
-  border-top-left-radius: var(--border-radius);
-  border-bottom-left-radius: var(--border-radius);
-  font-size: var(--fs-m);
-}
-
-.form__button {
-  background-color: var(--clr-secondary);
-  border: none;
-  border-top-right-radius: var(--border-radius);
-  border-bottom-right-radius: var(--border-radius);
-  color: #fafafa;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: var(--fs-s);
-  cursor: pointer;
-}
-
-.form__button:hover,
-.form__button:focus {
-  background-color: var(--clr-primary);
 }
 
 .main__posts {
@@ -85,28 +58,28 @@ body {
 
 .post {
   background-color: #fff;
-  color: var(--clr-secondary);
-  padding: 1em;
   border-radius: 1em;
-  position: relative;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+  color: var(--clr-secondary);
   display: flex;
   flex-direction: column;
   gap: 1em;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+  padding: 1em;
+  position: relative;
 }
 
 .post__id {
+  aspect-ratio: 1;
+  background-color: var(--clr-secondary);
+  border-radius: 50%;
+  color: #fff;
+  display: grid;
+  font-size: var(--fs-s);
+  left: -2.5%;
+  place-items: center;
   position: absolute;
   top: -5%;
-  left: -2.5%;
-  background-color: var(--clr-secondary);
-  color: #fff;
-  aspect-ratio: 1;
-  border-radius: 50%;
   width: 2em;
-  display: grid;
-  place-items: center;
-  font-size: var(--fs-s);
 }
 
 .post__title {
@@ -115,6 +88,47 @@ body {
 
 .post__body {
   font-size: var(--fs-m);
+}
+
+.main__loader {
+  display: flex;
+  gap: 10px;
+  margin: 3em auto 0 auto;
+
+  width: 100px;
+}
+
+.dot {
+  aspect-ratio: 1;
+  background-color: #fff;
+  border-radius: 50%;
+  content: "";
+  width: 20px;
+
+  animation: jiggle 200ms infinite alternate-reverse;
+  animation-play-state: running;
+  animation-delay: 0.1s;
+}
+
+.dot:first-of-type {
+  animation: jiggle 200ms infinite alternate-reverse;
+  animation-play-state: running;
+}
+
+.dot:last-of-type {
+  animation: jiggle 200ms infinite alternate-reverse;
+  animation-play-state: running;
+  animation-delay: 0.2s;
+}
+
+@keyframes jiggle {
+  0% {
+    transform: translateY(-50%);
+  }
+
+  100% {
+    transform: translateY(50%);
+  }
 }
 
 @media (min-width: 1000px) {

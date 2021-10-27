@@ -81,7 +81,7 @@ body {
   place-items: center;
   position: absolute;
   top: -5%;
-  width: 2em;
+  width: 2.5em;
 }
 
 .post__title {
@@ -113,7 +113,6 @@ body {
   border-radius: 50%;
   content: "";
   width: 15px;
-
   animation: jiggle 500ms infinite;
   animation-play-state: running;
   animation-delay: 0.1s;

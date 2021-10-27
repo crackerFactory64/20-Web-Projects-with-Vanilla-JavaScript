@@ -17,7 +17,6 @@ async function getPosts() {
 
 async function showPosts() {
   const posts = await getPosts();
-
   let output = "";
   posts.forEach((post) => {
     output += `<div class="post">
@@ -29,7 +28,6 @@ async function showPosts() {
         </div>`;
   });
   postsEl.innerHTML += output;
-  page++;
 }
 
 function updatePosts() {
@@ -40,12 +38,37 @@ function updatePosts() {
     loader.classList.add("main__loader--show");
     setTimeout(() => {
       loader.classList.remove("main__loader--show");
+      page++;
       getPosts();
       showPosts();
     }, 1000);
   }
 }
 
+async function filterPosts() {
+  const posts = document.querySelectorAll(".post");
+  const search = searchBar.value.toLowerCase().trim();
+  posts.forEach((post) => {
+    const title = post
+      .querySelector(".post__title")
+      .innerHTML.toLowerCase()
+      .trim();
+    const body = post
+      .querySelector(".post__body")
+      .innerHTML.toLowerCase()
+      .trim();
+    if (title.indexOf(search) > -1 || body.indexOf(search) > -1) {
+      post.style.display = "block";
+    } else {
+      post.style.display = "none";
+    }
+  });
+}
+
 window.addEventListener("scroll", () => {
   updatePosts();
+});
+
+searchBar.addEventListener("keyup", () => {
+  filterPosts();
 });

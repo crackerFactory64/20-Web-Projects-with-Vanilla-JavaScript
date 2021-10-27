@@ -70,9 +70,10 @@ body {
 
 .post__id {
   aspect-ratio: 1;
-  background-color: var(--clr-secondary);
+  background-color: black;
+  border: var(--clr-primary) 2px solid;
   border-radius: 50%;
-  color: #fff;
+  color: var(--clr-primary);
   display: grid;
   font-size: var(--fs-s);
   left: -2.5%;
@@ -107,34 +108,40 @@ body {
 
 .dot {
   aspect-ratio: 1;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: var(--clr-primary);
   border-radius: 50%;
   content: "";
   width: 15px;
 
-  animation: jiggle 200ms infinite alternate-reverse;
+  animation: jiggle 500ms infinite;
   animation-play-state: running;
   animation-delay: 0.1s;
 }
 
 .dot:first-of-type {
-  animation: jiggle 200ms infinite alternate-reverse;
+  animation: jiggle 500ms infinite;
   animation-play-state: running;
 }
 
 .dot:last-of-type {
-  animation: jiggle 200ms infinite alternate-reverse;
+  animation: jiggle 500ms infinite;
   animation-play-state: running;
   animation-delay: 0.2s;
 }
 
 @keyframes jiggle {
   0% {
-    transform: translateY(-50%);
+    transform: translateY(0%);
+    opacity: 20%;
+  }
+
+  50% {
+    transform: translateY(-100%);
   }
 
   100% {
-    transform: translateY(50%);
+    transform: translateY(0%);
+    opacity: 100%;
   }
 }
 

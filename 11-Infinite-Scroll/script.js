@@ -1,5 +1,6 @@
 const searchBar = document.getElementById("search-bar");
 const postsEl = document.getElementById("posts");
+const loader = document.getElementById("loader");
 
 let page = 1;
 
@@ -26,7 +27,11 @@ function getPosts() {
 
 function updatePosts() {
   if (document.body.scrollHeight == window.scrollY + window.innerHeight) {
-    getPosts();
+    loader.classList.add("main__loader--show");
+    setTimeout(() => {
+      loader.classList.remove("main__loader--show");
+      getPosts();
+    }, 1000);
   }
 }
 

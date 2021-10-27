@@ -17,8 +17,7 @@
 }
 
 body {
-  background-image: linear-gradient(var(--clr-secondary), var(--clr-primary));
-  background-repeat: no-repeat;
+  background-color: var(--clr-secondary);
   color: #fff;
   font-family: "Montserrat", sans-serif;
   font-size: var(--fs-m);
@@ -92,6 +91,7 @@ body {
 }
 
 .main__loader {
+  opacity: 0;
   position: fixed;
   bottom: 1.5em;
   left: 50%;
@@ -99,6 +99,10 @@ body {
   display: flex;
   gap: 10px;
   width: 100px;
+}
+
+.main__loader--show {
+  opacity: 100%;
 }
 
 .dot {

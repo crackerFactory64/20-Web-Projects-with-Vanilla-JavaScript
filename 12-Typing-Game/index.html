@@ -15,23 +15,37 @@
     <header class="options" id="options">
       <label for="difficulty" class="options__label">Difficulty:</label>
       <select name="difficulty" id="difficulty">
-        <option value="easy">Easy</option>
-        <option value="medium">Medium</option>
-        <option value="hard">Hard</option>
+        <option value="3">Easy</option>
+        <option value="2" selected="selected">Medium</option>
+        <option value="1">Hard</option>
       </select>
     </header>
-    <main class="app">
-      <div class="app__game-info">
-        <p class="game-info__p" id="time">Time: 10s</p>
-        <p class="game-info__p" id="score">Score: 0</p>
-        <p class="game-info__p" id="hi-score">Hi-Score: 0</p>
+    <main class="app" id="app">
+      <div class="app__game" id="game">
+        <div class="app__game-info">
+          <p class="game-info__p" id="time"></p>
+          <p class="game-info__p" id="score"></p>
+          <p class="game-info__p" id="hi-score"></p>
+        </div>
+        <h1 class="app__title">Meltzer Teaches Typing</h1>
+        <div class="app__instructions">
+          <p class="instructions__p">Type the following:</p>
+          <h2 class="instructions__word" id="word"></h2>
+        </div>
+        <input
+          type="text"
+          class="app__input"
+          id="input"
+          autofocus
+          autocomplete="off"
+        />
       </div>
-      <h1 class="app__title">Meltzer Teaches Typing</h1>
-      <div class="app__instructions">
-        <p class="instructions__p">Type the following:</p>
-        <h2 class="instructions__word" id="word">kayfabe</h2>
+      <!--game over content-->
+      <div class="app__game-over hide" id="game-over">
+        <h1 class="app__title">Game Over</h1>
+        <p id="game-over-text"></p>
+        <button class="app__button" id="try-again">Try Again</button>
       </div>
-      <input type="text" class="app__input" id="input" />
     </main>
     <aside class="toggle">
       <button class="toggle__button" id="toggle">

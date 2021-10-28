@@ -23,6 +23,10 @@ body {
   position: relative;
 }
 
+.hide {
+  display: none;
+}
+
 .options {
   position: absolute;
   top: 0;
@@ -54,7 +58,8 @@ body {
   width: 90%;
 }
 
-.app > * {
+.app__game > *,
+.app__game-over > * {
   margin-bottom: 0.5em;
 }
 
@@ -87,6 +92,24 @@ body {
   font-size: var(--fs-m);
   width: 75%;
   margin: 0 auto;
+}
+
+.app__button {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fafafa;
+  border: none;
+  width: fit-content;
+  width: -moz-fit-content;
+  margin: 0.5em auto;
+  padding: 1em;
+  text-transform: uppercase;
+  font-family: "Allerta Stencil", sans-serif;
+  cursor: pointer;
+}
+
+.app__button:hover,
+.app__button:focus {
+  color: rgba(255, 0, 0, 0.8);
 }
 
 .toggle {

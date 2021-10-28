@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meltzer Teaches Typing</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/add40c6218.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header class="options" id="options">
+      <label for="difficulty" class="options__label">Difficulty:</label>
+      <select name="difficulty" id="difficulty">
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+    </header>
+    <main class="app">
+      <div class="app__game-info">
+        <p class="game-info__p" id="time">Time: 10s</p>
+        <p class="game-info__p" id="score">Score: 0</p>
+        <p class="game-info__p" id="hi-score">Hi-Score: 0</p>
+      </div>
+      <h1 class="app__title">Meltzer Teaches Typing</h1>
+      <div class="app__instructions">
+        <p class="instructions__p">Type the following:</p>
+        <h2 class="instructions__word" id="word">kayfabe</h2>
+      </div>
+      <input type="text" class="app__input" id="input" />
+    </main>
+    <aside class="toggle">
+      <button class="toggle__button" id="toggle">
+        <i class="fas fa-cog"></i>
+      </button>
+    </aside>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -70,7 +70,6 @@ setWord();
 
 function setWord() {
   word = words[Math.floor(Math.random() * words.length)];
-  wordEl.innerHTML = word;
   updateDom();
 }
 
@@ -91,6 +90,7 @@ function checkInput() {
 
 function handleTime() {
   if (time <= 0) {
+    clearInterval(interval);
     gameOverText.innerHTML = `You scored ${score} points.`;
     game.classList.add("hide");
     gameOver.classList.remove("hide");
@@ -101,18 +101,10 @@ function handleTime() {
 }
 
 function updateDom() {
+  wordEl.innerHTML = word;
   scoreEl.innerHTML = `Score: ${score}`;
   hiScoreEl.innerHTML = `Hi-Score: ${hiScore}`;
   timeEl.innerHTML = `Time: ${time}s`;
-}
-
-function resetGame() {
-  score = 0;
-  time = 10;
-  setWord();
-  updateDom();
-  gameOver.classList.add("hide");
-  game.classList.remove("hide");
 }
 
 toggleButton.addEventListener("click", () => {

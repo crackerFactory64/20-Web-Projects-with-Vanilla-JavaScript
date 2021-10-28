@@ -115,10 +115,6 @@ inputEl.addEventListener("keyup", () => {
   checkInput();
 });
 
-tryAgain.addEventListener("click", () => {
-  window.location.reload();
-});
-
 difficultyEl.addEventListener("change", () => {
   addTime = +difficultyEl.value;
   localStorage.setItem("difficulty", difficultyEl.value);

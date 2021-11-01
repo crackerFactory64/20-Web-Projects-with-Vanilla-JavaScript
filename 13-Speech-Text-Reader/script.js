@@ -7,25 +7,29 @@ const openCustom = document.getElementById("custom-button");
 const cards = document.getElementById("cards");
 
 const info = [
-  { text: "I'm thirsty", img: "images/drink.jpg" },
-  { text: "I'm hungry", img: "images/food.jpg" },
-  { text: "I'm tired", img: "images/tired.jpg" },
-  { text: "I'm happy", img: "images/happy.jpg" },
-  { text: "I'm hurt", img: "images/hurt.jpg" },
-  { text: "I'm scared", img: "images/scared.jpg" },
-  { text: "I want to go home", img: "images/home.jpg" },
-  { text: "I want to go outside", img: "images/outside.jpg" },
-  { text: "I want to go to school", img: "images/school.jpg" },
-  { text: "I want Grandma", img: "images/grandma.jpg" },
+    { text: "I am thirsty", img: "images/drink.jpg" },
+    { text: "I am hungry", img: "images/food.jpg" },
+    { text: "I am tired", img: "images/tired.jpg" },
+    { text: "I am happy", img: "images/happy.jpg" },
+    { text: "I am hurt", img: "images/hurt.jpg" },
+    { text: "I am scared", img: "images/scared.jpg" },
+    { text: "I want to go home", img: "images/home.jpg" },
+    { text: "I want to go outside", img: "images/outside.jpg" },
+    { text: "I want to go to school", img: "images/school.jpg" },
+    { text: "I want Grandma", img: "images/grandma.jpg" },
 ];
+
+let words = new SpeechSynthesisUtterance();
+
+const synth = window.speechSynthesis;
 
 generateCards();
 
 function generateCards() {
-  let output = "";
-  info.forEach((set) => {
-    output += `
-            <div class="card">
+    let output = "";
+    info.forEach((set) => {
+        output += `
+            <div class="card" onclick="speak('${set.text}')">
                 <div class="card__img-container">
                     <img 
                         src="${set.img}"
@@ -36,18 +40,24 @@ function generateCards() {
             <h2 class="card__title">"${set.text}"</h2>
             </div>
         `;
-  });
-  cards.innerHTML = output;
+    });
+    cards.innerHTML = output;
+}
+
+function speak(words) {
+    words = new SpeechSynthesisUtterance(words);
+    synth.speak(words);
 }
 
 function showHide() {
-  customise.classList.toggle("toggle--open");
+    customise.classList.toggle("toggle--open");
 }
 
 openCustom.addEventListener("click", () => {
-  showHide();
+    showHide();
 });
 
 close.addEventListener("click", () => {
-  showHide();
+    showHide();
 });
+

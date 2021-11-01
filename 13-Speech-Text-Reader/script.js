@@ -1,6 +1,6 @@
 const customise = document.getElementById("toggle");
 const close = document.getElementById("close");
-const voice = document.getElementById("voice");
+const voiceSelect = document.getElementById("voice");
 const customText = document.getElementById("custom");
 const read = document.getElementById("read");
 const openCustom = document.getElementById("custom-button");
@@ -19,11 +19,15 @@ const info = [
     { text: "I want Grandma", img: "images/grandma.jpg" },
 ];
 
-let words = new SpeechSynthesisUtterance();
 
 const synth = window.speechSynthesis;
 
+let voices = [];
+let words = new SpeechSynthesisUtterance();
+let selectedVoice = "";
+
 generateCards();
+setTimeout(() => { populateVoices(); }, 500)
 
 function generateCards() {
     let output = "";
@@ -45,9 +49,29 @@ function generateCards() {
 }
 
 function speak(words) {
+
     words = new SpeechSynthesisUtterance(words);
+    voices.forEach(voice => {
+        if (voice.name === selectedVoice) {
+            words.voice = voice;
+        }
+    })
     synth.speak(words);
 }
+
+function populateVoices() {
+    voices = synth.getVoices();
+    voices.forEach(voice => {
+        const option = document.createElement('option');
+        option.textContent = voice.name;
+        voiceSelect.appendChild(option);
+    })
+}
+
+function selectVoice() {
+    selectedVoice = voiceSelect.value;
+}
+
 
 function showHide() {
     customise.classList.toggle("toggle--open");
@@ -61,3 +85,10 @@ close.addEventListener("click", () => {
     showHide();
 });
 
+read.addEventListener("click", () => {
+    speak(customText.value);
+})
+
+voiceSelect.addEventListener("change", () => {
+    selectVoice();
+})

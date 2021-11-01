@@ -3,6 +3,7 @@ const close = document.getElementById("close");
 const voice = document.getElementById("voice");
 const customText = document.getElementById("custom");
 const read = document.getElementById("read");
+const openCustom = document.getElementById("custom-button");
 const cards = document.getElementById("cards");
 
 const info = [
@@ -38,3 +39,15 @@ function generateCards() {
   });
   cards.innerHTML = output;
 }
+
+function showHide() {
+  customise.classList.toggle("toggle--open");
+}
+
+openCustom.addEventListener("click", () => {
+  showHide();
+});
+
+close.addEventListener("click", () => {
+  showHide();
+});

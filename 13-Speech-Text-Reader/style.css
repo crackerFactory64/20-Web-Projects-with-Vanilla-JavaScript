@@ -34,15 +34,17 @@ img {
   gap: 10px;
   left: 50%;
   max-width: 750px;
-  padding: 1em;
+  padding: 3em 1em;
   position: fixed;
   top: -50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -30%);
   width: 95%;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8);
+  transition: ease-in-out 750ms;
 }
 
 .toggle--open {
-  top: 50%;
+  top: 30%;
 }
 
 .toggle__close {
@@ -105,7 +107,7 @@ img {
 }
 
 .card--selected {
-  box-shadow: 0px 0px 50px peru;
+  box-shadow: 0px 10px 50px peru;
 }
 
 .card__img-container {

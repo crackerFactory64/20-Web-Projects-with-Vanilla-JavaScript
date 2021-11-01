@@ -36,9 +36,13 @@ img {
   max-width: 750px;
   padding: 1em;
   position: fixed;
-  top: 50%;
+  top: -50%;
   transform: translate(-50%, -50%);
   width: 95%;
+}
+
+.toggle--open {
+  top: 50%;
 }
 
 .toggle__close {

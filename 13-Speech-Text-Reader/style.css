@@ -41,6 +41,7 @@ img {
   width: 95%;
   box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8);
   transition: ease-in-out 750ms;
+  z-index: 1000;
 }
 
 .toggle--open {
@@ -100,23 +101,23 @@ img {
 }
 
 .card {
+  background-color: #fff;
   border-radius: 10px;
   cursor: pointer;
-  width: 100%;
-  background-color: #fff;
   position: relative;
+  width: 100%;
 }
 
 .card::before {
-  position: absolute;
+  background-color: peru;
+  border-radius: 10px;
+  content: "";
   inset: -10px;
   margin: 0 auto;
-  background-color: peru;
-  z-index: -100;
-  content: "";
   opacity: 0;
+  position: absolute;
   transition: opacity ease-in-out 200ms;
-  border-radius: 10px;
+  z-index: -100;
 }
 
 .card.card--selected.card::before {
@@ -129,12 +130,12 @@ img {
 }
 
 .card__img {
+  aspect-ratio: 1;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   display: block;
-  width: 100%;
-  aspect-ratio: 1;
   object-fit: cover;
+  width: 100%;
 }
 
 .card__title {

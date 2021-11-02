@@ -41,8 +41,8 @@ function generateCards() {
                         alt="${set.text}"
                         class="card__img"
                     />
-            </div>
-            <h2 class="card__title">"${set.text}"</h2>
+                </div>
+                <h2 class="card__title">"${set.text}"</h2>
             </div>
         `;
     });
@@ -74,15 +74,6 @@ function populateVoices() {
     })
 }
 
-function selectVoice() {
-    selectedVoice = voiceSelect.value;
-}
-
-
-function showHide() {
-    customise.classList.toggle("toggle--open");
-}
-
 function highlightCard(card) {
     for (let i = 0; i < cardsArr.length; i++) {
         if (cardsArr[i].classList.contains("card--selected")) {
@@ -98,6 +89,11 @@ function removeHighlights() {
     })
 }
 
+
+function showHide() {
+    customise.classList.toggle("toggle--open");
+}
+
 openCustom.addEventListener("click", () => {
     showHide();
 });
@@ -111,6 +107,6 @@ read.addEventListener("click", () => {
 })
 
 voiceSelect.addEventListener("change", () => {
-    selectVoice();
+    selectedVoice = voiceSelect.value;
 })
 

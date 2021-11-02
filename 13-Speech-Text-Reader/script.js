@@ -5,6 +5,7 @@ const customText = document.getElementById("custom");
 const read = document.getElementById("read");
 const openCustom = document.getElementById("custom-button");
 const cards = document.getElementById("cards");
+let cardsArr = [];
 
 const info = [
     { text: "I am thirsty", img: "images/drink.jpg" },
@@ -33,7 +34,7 @@ function generateCards() {
     let output = "";
     info.forEach((set) => {
         output += `
-            <div class="card" onclick="speak('${set.text}')">
+            <div class="card" onclick="speak('${set.text}'), highlightCard(this)">
                 <div class="card__img-container">
                     <img 
                         src="${set.img}"
@@ -46,17 +47,22 @@ function generateCards() {
         `;
     });
     cards.innerHTML = output;
+    cardsArr = document.querySelectorAll(".card");
 }
 
 function speak(words) {
-
-    words = new SpeechSynthesisUtterance(words);
-    voices.forEach(voice => {
-        if (voice.name === selectedVoice) {
-            words.voice = voice;
+    if (!synth.speaking) {
+        words = new SpeechSynthesisUtterance(words);
+        words.onend = () => {
+            removeHighlights();
         }
-    })
-    synth.speak(words);
+        voices.forEach(voice => {
+            if (voice.name === selectedVoice) {
+                words.voice = voice;
+            }
+        })
+        synth.speak(words);
+    }
 }
 
 function populateVoices() {
@@ -77,6 +83,21 @@ function showHide() {
     customise.classList.toggle("toggle--open");
 }
 
+function highlightCard(card) {
+    for (let i = 0; i < cardsArr.length; i++) {
+        if (cardsArr[i].classList.contains("card--selected")) {
+            return
+        }
+    }
+    card.classList.add("card--selected");
+}
+
+function removeHighlights() {
+    cardsArr.forEach((card) => {
+        card.classList.remove("card--selected");
+    })
+}
+
 openCustom.addEventListener("click", () => {
     showHide();
 });
@@ -92,3 +113,4 @@ read.addEventListener("click", () => {
 voiceSelect.addEventListener("change", () => {
     selectVoice();
 })
+

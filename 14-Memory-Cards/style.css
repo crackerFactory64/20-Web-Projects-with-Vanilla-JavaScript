@@ -111,8 +111,15 @@ body {
   display: block;
 }
 
+.app__button:hover,
+.app__button:focus-visible {
+  background-color: var(--clr-body);
+  color: var(--clr-accent);
+}
+
 .app__card {
   background-color: var(--clr-accent);
+  color: var(--clr-body);
   width: 80%;
   min-height: 25vh;
   margin: 1em auto 1em auto;

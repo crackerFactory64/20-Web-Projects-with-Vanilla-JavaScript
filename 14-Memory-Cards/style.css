@@ -127,11 +127,12 @@ body {
   margin: 1em auto 1em auto;
   place-items: center;
   position: relative;
-  width: 90%;
+  width: 100%;
 }
 
 .card__button {
   background-color: var(--clr-background);
+  border-radius: 10em;
   color: var(--clr-body);
   margin: 10px;
   opacity: 0.75;

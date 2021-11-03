@@ -141,6 +141,10 @@ i {
   inset: 0;
 }
 
+.card--active {
+  z-index: 10;
+}
+
 .card__button {
   background-color: var(--clr-background);
   border-radius: 10em;
@@ -151,7 +155,7 @@ i {
   position: absolute;
   right: 0;
   top: 0;
-  z-index: 10;
+  z-index: 15;
 }
 
 .card__button:hover,

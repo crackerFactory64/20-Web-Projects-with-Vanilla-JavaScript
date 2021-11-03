@@ -89,7 +89,7 @@ img {
 }
 
 .app__button:hover,
-.app__button:focus {
+.app__button:focus-visible {
   background-color: white;
   color: peru;
 }

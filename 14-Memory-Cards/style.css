@@ -16,6 +16,10 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+i {
+  padding-right: 5px;
+}
+
 .container {
   position: relative;
   width: 90%;
@@ -117,17 +121,24 @@ body {
   color: var(--clr-accent);
 }
 
-.app__card {
+.app__cards {
+  position: relative;
+  width: 100%;
+  margin: 1em auto;
+  aspect-ratio: 1;
+}
+
+.card {
   aspect-ratio: 1;
   background-color: var(--clr-accent);
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
   color: var(--clr-body);
   display: grid;
-  margin: 1em auto 1em auto;
   place-items: center;
-  position: relative;
+  position: absolute;
   width: 100%;
+  inset: 0;
 }
 
 .card__button {
@@ -140,6 +151,7 @@ body {
   position: absolute;
   right: 0;
   top: 0;
+  z-index: 10;
 }
 
 .card__button:hover,
@@ -147,11 +159,22 @@ body {
   opacity: 1;
 }
 
+.card__front,
+.card__back {
+  background-color: var(--clr-accent);
+  border-radius: 10px;
+  display: grid;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
 .card__body {
   color: var(--clr-body);
   font-size: 2rem;
-  padding: 1em;
+  display: block;
   text-align: center;
+  margin: auto;
 }
 
 .app__controls {

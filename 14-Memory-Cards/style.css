@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
 :root {
-  --clr-background: #246313;
-  --clr-accent: #d61515;
+  --clr-background: #274ad8;
+  --clr-accent: #27a3d8;
   --clr-body: #fff;
 }
 
@@ -16,28 +16,30 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+.container {
+  position: relative;
+  width: 90%;
+  max-width: 370px;
+  margin: 0 auto;
+}
+
 .button {
   border: none;
   cursor: pointer;
 }
 
 .new-card {
-  align-items: center;
   background-color: var(--clr-background);
   color: var(--clr-body);
-  display: flex;
-  flex-direction: column;
+  display: none;
   inset: 0;
-  justify-content: center;
+  place-items: center;
   position: absolute;
   z-index: 100;
-  display: none;
 }
 
-.new-card-content {
-  position: relative;
-  width: 90%;
-  max-width: 370px;
+.new-card--show {
+  display: grid;
 }
 
 .new-card__close {
@@ -86,4 +88,87 @@ body {
 .form__button:focus-visible {
   background-color: var(--clr-body);
   color: var(--clr-accent);
+}
+
+.app {
+  background-color: var(--clr-background);
+  color: var(--clr-body);
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.app__title {
+  text-align: center;
+  font-weight: 400;
+}
+
+.app__button {
+  padding: 0.75em;
+  background-color: var(--clr-accent);
+  color: var(--clr-body);
+  margin: 1em auto;
+  display: block;
+}
+
+.app__card {
+  background-color: var(--clr-accent);
+  width: 80%;
+  min-height: 25vh;
+  margin: 1em auto 1em auto;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.card__button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 10px;
+  background-color: var(--clr-background);
+  color: var(--clr-body);
+  padding: 0.5em;
+  opacity: 0.75;
+}
+
+.card__button:hover,
+.card__button:focus-visible {
+  opacity: 1;
+}
+
+.card__body {
+  color: var(--clr-body);
+  font-size: 1.5rem;
+  padding: 1em;
+  text-align: center;
+}
+
+.app__controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 0 auto;
+}
+
+.controls__button,
+.controls__number {
+  background-color: transparent;
+  color: var(--clr-body);
+}
+
+.controls__button {
+  font-size: 1.5rem;
+}
+
+.controls__number {
+  font-size: 0.9rem;
+}
+
+.app__button--clear {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin: 1em;
 }

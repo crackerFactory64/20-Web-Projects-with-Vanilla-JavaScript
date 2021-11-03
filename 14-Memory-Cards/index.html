@@ -8,6 +8,36 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <aside class="new-card" id="new-card">
+      <button class="button new-card__close" id="close">X</button>
+      <h2 class="new-card__title">Add New Card</h2>
+      <form class="new-card__form">
+        <label for="question" class="form__label">Question</label>
+        <textarea id="question" class="form__textarea"></textarea>
+        <label for="answer" class="form__label">Answer</label>
+        <textarea id="answer" class="form__textarea"></textarea>
+        <button class="form__button button" id="add-new">Add</button>
+      </form>
+    </aside>
+    <main class="app">
+      <h1 class="app__title">Memory Cards</h1>
+      <button class="button app__button app__button--new" id="open-add">
+        Add New Card
+      </button>
+      <div class="app__card" id="card">
+        <button class="card__button button">Flip</button>
+        <p class="card__body">What is the capital of England?</p>
+      </div>
+      <div class="app__controls">
+        <button class="button controls__button" id="prev"><-</button>
+        <p class="controls__number" id="number">1/1</p>
+        <button class="button controls__button" id="next">-></button>
+      </div>
+      <button class="app__button app__button--clear button" id="clear">
+        Clear Cards
+      </button>
+    </main>
+
     <script src="script.js"></script>
   </body>
 </html>

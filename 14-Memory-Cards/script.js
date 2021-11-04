@@ -23,10 +23,10 @@ function populateCardsEl() {
         output +=
             `
             <div class="card">
-                <button class="card__button button">
+                <button class="card__button button" onclick="flipCard()">
                     <i class="fas fa-undo"></i>Flip
                 </button>
-                <div class="card__front card__show">
+                <div class="card__front card__front--show">
                     <p class="card__body">${card.q}</p>
                 </div>
                 <div class="card__back">
@@ -54,9 +54,19 @@ function changeCard(direction) {
 
     cardsElArr.forEach(card => {
         card.classList.remove("card--active");
+        card.querySelector(".card__front").classList.add("card__front--show");
     })
 
     updateDOM();
+}
+
+function flipCard() {
+    cardsElArr.forEach(card => {
+        if (card.classList.contains("card--active")) {
+            card.querySelector(".card__front").classList.toggle("card__front--show");
+        }
+    })
+
 }
 
 function addNewCard() {
@@ -107,3 +117,4 @@ clearCards.addEventListener("click", () => {
     cardsArr = [];
     populateCardsEl();
 })
+

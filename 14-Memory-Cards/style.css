@@ -155,7 +155,7 @@ i {
   position: absolute;
   right: 0;
   top: 0;
-  z-index: 15;
+  z-index: 10;
 }
 
 .card__button:hover,
@@ -171,6 +171,10 @@ i {
   height: 100%;
   position: absolute;
   width: 100%;
+}
+
+.card__front--show {
+  z-index: 5;
 }
 
 .card__body {

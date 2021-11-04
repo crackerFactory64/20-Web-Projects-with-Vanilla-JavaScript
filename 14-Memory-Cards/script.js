@@ -10,10 +10,13 @@ const currentCard = document.getElementById("number");
 const nextCard = document.getElementById("next");
 const clearCards = document.getElementById("clear");
 
-let cardsArr = [{ q: "What is the capital of England?", a: "London" }, { q: "What is the capital of France?", a: "Paris" }]
+const localStorageCardsArr = JSON.parse(localStorage.getItem("cards"));
+
+localStorageCardsArr ? cardsArr = localStorageCardsArr : cardsArr = [];
 
 let cardsElArr = [];
 let currentCardIndex = 0;
+let leftRight = "right";
 
 populateCardsEl();
 
@@ -42,22 +45,37 @@ function populateCardsEl() {
 }
 
 function changeCard(direction) {
-    direction == next ? currentCardIndex++ : currentCardIndex--;
+    if (cardsElArr.length > 1) {
+        cardsElArr.forEach(card => {
+            card.classList.remove("card--right");
+            card.classList.remove("card--left");
+        })
 
-    if (currentCardIndex + 1 > cardsElArr.length) {
-        currentCardIndex = 0;
+        if (direction == next) {
+            currentCardIndex++;
+            leftRight = "right";
+        } else if (direction == prev) {
+            currentCardIndex--;
+            leftRight = "left";
+        }
+
+        if (currentCardIndex + 1 > cardsElArr.length) {
+            currentCardIndex = 0;
+        }
+
+        if (currentCardIndex < 0) {
+            currentCardIndex = cardsElArr.length - 1;
+        }
+
+        cardsElArr.forEach(card => {
+            card.classList.remove("card--active");
+            card.querySelector(".card__front").classList.add("card__front--show");
+        })
+
+        leftRight == "right" ? cardsElArr[currentCardIndex].classList.add("card--right") : cardsElArr[currentCardIndex].classList.add("card--left");
+
+        updateDOM();
     }
-
-    if (currentCardIndex < 0) {
-        cardsElArr.length > 0 ? currentCardIndex = cardsElArr.length - 1 : currentCardIndex = 0;
-    }
-
-    cardsElArr.forEach(card => {
-        card.classList.remove("card--active");
-        card.querySelector(".card__front").classList.add("card__front--show");
-    })
-
-    updateDOM();
 }
 
 function flipCard() {
@@ -66,14 +84,17 @@ function flipCard() {
             card.querySelector(".card__front").classList.toggle("card__front--show");
         }
     })
-
 }
 
 function addNewCard() {
     const question = questionEl.value;
     const answer = answerEl.value;
+    questionEl.value = "";
+    answerEl.value = "";
 
     cardsArr.push({ "q": question, "a": answer });
+
+    localStorage.setItem("cards", JSON.stringify(cardsArr));
 
     populateCardsEl();
 }
@@ -115,6 +136,7 @@ prevCard.addEventListener("click", () => {
 
 clearCards.addEventListener("click", () => {
     cardsArr = [];
+    localStorage.clear();
     populateCardsEl();
 })
 

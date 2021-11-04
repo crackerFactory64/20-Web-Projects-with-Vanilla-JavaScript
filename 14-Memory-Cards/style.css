@@ -132,17 +132,49 @@ i {
   aspect-ratio: 1;
   background-color: var(--clr-accent);
   border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
   color: var(--clr-body);
   display: grid;
   place-items: center;
   position: absolute;
   width: 100%;
   inset: 0;
+  opacity: 0;
 }
 
 .card--active {
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
   z-index: 10;
+  opacity: 1;
+}
+
+.card--right {
+  animation: slideRight ease 500ms;
+}
+
+.card--left {
+  animation: slideLeft ease 500ms;
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translate(50%);
+  }
+  to {
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translate(-50%);
+  }
+  to {
+    transform: translate(0);
+    opacity: 1;
+  }
 }
 
 .card__button {

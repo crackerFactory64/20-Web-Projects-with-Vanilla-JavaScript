@@ -5,17 +5,32 @@
 *::after {
   box-sizing: border-box;
   margin: 0;
+  padding: 0;
 }
 
 body {
   font-family: "Roboto", sans-serif;
+  background-color: aquamarine;
 }
 
 .app {
-  min-height: 100vh;
-  background-color: aquamarine;
   padding: 1em;
+}
+
+.container {
+  display: block;
   position: relative;
+  height: 90vh;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.in {
+  animation: in 2000ms linear;
+}
+
+.out {
+  animation: out 2000ms linear;
 }
 
 .app__title {
@@ -55,10 +70,11 @@ body {
 }
 
 .circle__dot-container {
-  width: 140%;
+  width: 400px;
   background-color: transparent;
-  height: 50px;
+  height: 20px;
   position: absolute;
+
   animation: orbit 5000ms linear infinite;
 }
 
@@ -72,10 +88,37 @@ body {
 
 @keyframes orbit {
   from {
-    transform: rotate(0deg);
+    transform: rotate(-90deg);
   }
 
   to {
-    transform: rotate(360deg);
+    transform: rotate(270deg);
+  }
+}
+
+@keyframes in {
+  from {
+    transform: scale(0.9);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes out {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(0.9);
+  }
+}
+
+@media (min-width: 450px) {
+  .circle__dot-container {
+    width: 550px;
+    height: 40px;
   }
 }

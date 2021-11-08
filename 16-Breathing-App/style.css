@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.app {
+  min-height: 100vh;
+  background-color: aquamarine;
+  padding: 1em;
+  position: relative;
+}
+
+.app__title {
+  color: rgba(0, 0, 0, 0.75);
+  margin: auto;
+  width: fit-content;
+  width: -moz-fit-content;
+}
+
+.app__circle {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.app__circle--outer {
+  background-image: conic-gradient(
+    lightgreen 140deg,
+    #fff 120deg 220deg,
+    lightseagreen 220deg
+  );
+  width: 80%;
+  max-width: 440px;
+}
+
+.app__circle--inner {
+  background-color: tomato;
+  color: #fff;
+  display: grid;
+  font-size: 1.5rem;
+  max-width: 400px;
+  place-items: center;
+  width: 75%;
+}
+
+.circle__dot-container {
+  width: 140%;
+  background-color: transparent;
+  height: 50px;
+  position: absolute;
+  animation: orbit 5000ms linear infinite;
+}
+
+.dot {
+  background-color: rgba(0, 0, 0, 0.75);
+  height: 100%;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  margin-left: auto;
+}
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

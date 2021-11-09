@@ -95,7 +95,5 @@ body {
 }
 
 .app__game {
-  background-color: #fff;
-  width: 100%;
-  max-width: 1000px;
+  background-color: var(--clr-neutral);
 }

@@ -9,7 +9,9 @@
   </head>
   <body>
     <aside class="rules" id="rules-panel">
-      <button class="rules__close" aria-label="Close rules">X</button>
+      <button class="rules__close" aria-label="Close rules" id="close-rules">
+        X
+      </button>
       <h2 class="rules__title">How to play:</h2>
       <ul class="rules__list">
         <li class="rules__list-item">
@@ -26,10 +28,8 @@
     </aside>
     <main class="app">
       <button class="app__show-rules" id="rules-button">Instructions</button>
-      <div class="container">
-        <h1 class="app__title">Breakout</h1>
-        <canvas class="app__game" id="game"></canvas>
-      </div>
+      <h1 class="app__title">Breakout</h1>
+      <canvas class="app__game" id="game"></canvas>
     </main>
     <script src="script.js"></script>
   </body>

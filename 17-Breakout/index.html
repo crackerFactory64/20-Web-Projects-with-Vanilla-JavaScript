@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Breakout</title>
+  </head>
+  <body>
+    <aside class="rules" id="rules-panel">
+      <button class="rules__close" aria-label="Close rules">X</button>
+      <h2 class="rules__title">How to play:</h2>
+      <ul class="rules__list">
+        <li class="rules__list-item">
+          Control your paddle with the arrow keys
+        </li>
+        <li class="rules__list-item">
+          Hit the ball at the blocks to break them and score points
+        </li>
+        <li class="rules__list-item">
+          The game ends if you allow the ball to touch the bottom of the play
+          area
+        </li>
+      </ul>
+    </aside>
+    <main class="app">
+      <button class="app__show-rules" id="rules-button">Instructions</button>
+      <div class="container">
+        <h1 class="app__title">Breakout</h1>
+        <canvas class="app__game" id="game"></canvas>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

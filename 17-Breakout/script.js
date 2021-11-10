@@ -9,6 +9,9 @@ const ball = {
   x: canvas.width / 2,
   y: canvas.height / 2,
   size: 10,
+  dx: 4,
+  dy: -4,
+  speed: 5,
 };
 
 const paddle = {
@@ -33,6 +36,7 @@ update();
 
 function update() {
   movePaddle();
+  moveBall();
   draw();
   requestAnimationFrame(update);
 }
@@ -66,6 +70,27 @@ function drawBricks() {
   }
 }
 
+function moveBall() {
+  ball.x += ball.dx;
+  ball.y += ball.dy;
+
+  if (ball.x + ball.size > canvas.width || ball.x - ball.size < 0) {
+    ball.dx *= -1;
+  }
+
+  if (ball.y + ball.size > canvas.height || ball.y - ball.size < 0) {
+    ball.dy *= -1;
+  }
+
+  if (
+    ball.x - ball.size > paddle.x &&
+    ball.x - ball.size < paddle.x + paddle.w &&
+    ball.y - ball.size === paddle.y - paddle.h
+  ) {
+    ball.dy *= -1;
+  }
+}
+
 function movePaddle() {
   paddle.x += paddle.dx;
 
@@ -81,7 +106,6 @@ function movePaddle() {
 function keyDown(e) {
   if (e.key == "ArrowRight") {
     paddle.dx = paddle.speed;
-    console.log(paddle.x);
   }
   if (e.key == "ArrowLeft") {
     paddle.dx = -paddle.speed;

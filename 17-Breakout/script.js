@@ -18,18 +18,49 @@ const paddle = {
   h: 10,
 };
 
+const brick = {
+  x: canvas.width / 9,
+  y: 40,
+  w: canvas.width / 9 - 5,
+  h: 20,
+};
+
+const colors = ["#363AD1", "#429D40", "#CCA407", "#D06537"];
+
+function drawBricks() {
+  const columns = 9;
+  const rows = 4;
+
+  for (let i = 1; i <= rows; i++) {
+    let y = 30 * i;
+    ctx.beginPath();
+    ctx.rect(0, y, brick.w, brick.h);
+    ctx.fillStyle = colors[i - 1];
+    ctx.fill();
+    ctx.closePath();
+    for (let j = 1; j < columns; j++) {
+      ctx.beginPath();
+      ctx.rect(brick.x * j, y, brick.w, brick.h);
+      ctx.fillStyle = colors[i + -1];
+      ctx.fill();
+      ctx.closePath();
+    }
+  }
+}
+
 draw();
 
 function draw() {
   drawBall();
   drawPaddle();
   drawScore();
+  drawBricks();
 }
 
 function drawScore() {
-  ctx.font = "50px Helvetica";
+  ctx.font = "20px Helvetica";
   ctx.fillStyle = "#fff";
-  ctx.fillText("000", 675, 75);
+  ctx.fillText("000", 750, 25);
 }
 
 function drawPaddle() {

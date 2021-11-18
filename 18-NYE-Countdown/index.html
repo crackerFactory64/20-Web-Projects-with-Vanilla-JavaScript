@@ -10,8 +10,10 @@
   <body>
     <main class="app">
       <h1 class="app__title">New Year's Countdown</h1>
-      <div class="app__spinner-container" id="spinner"></div>
-      <div class="app__count">
+      <div class="app__spinner app__spinner--hide" id="spinner">
+        <img src="spinner.gif" alt="loading" />
+      </div>
+      <div class="app__count app__count--show">
         <div class="count__days">
           <p class="count__number" id="days">50</p>
           <p class="count__unit">days</p>
@@ -30,6 +32,9 @@
         </div>
       </div>
     </main>
+    <aside>
+      <h2 class="next-year">2022</h2>
+    </aside>
     <script src="script.js"></script>
   </body>
 </html>

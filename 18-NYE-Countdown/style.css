@@ -12,7 +12,7 @@ body {
   display: grid;
   place-items: center;
   background-blend-mode: darken;
-  background-color: rgba(0, 0, 0, 0.33);
+  background-color: rgba(0, 0, 0, 0.5);
   background-image: url("bg.jpg");
   background-position: center;
   background-size: cover;
@@ -26,10 +26,12 @@ p {
   font-size: 1.5rem;
 }
 
-.app {
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 3em;
-  border-radius: 10px;
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
 }
 
 .app__title {
@@ -39,16 +41,32 @@ p {
   letter-spacing: 1.5px;
 }
 
+.app__spinner {
+  margin: 0 auto;
+  width: fit-content;
+  width: -moz-fit-content;
+}
+
+.app__spinner--hide {
+  display: none;
+}
+
 .app__count {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: space-around;
-  border: 1px solid rgba(255, 255, 255);
-  padding: 1em;
-  border-radius: 10em;
+}
+
+.app__count--show {
+  display: flex;
 }
 
 .count__number {
   font-size: 3rem;
   letter-spacing: 5px;
+}
+
+.next-year {
+  font-size: 10rem;
+  opacity: 0.5;
 }

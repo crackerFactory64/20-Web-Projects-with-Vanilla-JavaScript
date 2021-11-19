@@ -28,9 +28,7 @@ function getDays() {
 }
 
 function getHours() {
-  return currentTime.getMinutes() == 0
-    ? 24 - currentTime.getHours()
-    : 23 - currentTime.getHours();
+  return 23 - currentTime.getHours();
 }
 
 function getMins() {
@@ -38,7 +36,7 @@ function getMins() {
 }
 
 function getSecs() {
-  return 60 - currentTime.getSeconds();
+  return 59 - currentTime.getSeconds();
 }
 
 loading();

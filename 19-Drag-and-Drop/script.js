@@ -20,6 +20,10 @@ const shuffledList = shuffle([...top10]);
 
 populateList(shuffledList);
 
+const draggables = document.querySelectorAll(".item__draggable");
+
+console.log(draggables);
+
 function populateList(arr) {
   let rank = 1;
   arr.forEach((film, index) => {
@@ -55,3 +59,7 @@ function shuffle(array) {
 
   return array;
 }
+
+draggables.forEach((el) => {
+  el.addEventListener("dragstart", (e) => {});
+});

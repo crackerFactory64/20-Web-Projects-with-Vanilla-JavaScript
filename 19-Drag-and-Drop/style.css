@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@400;700&display=swap");
+:root {
+  --clr-bg1: #285e2a;
+  --clr-bg2: rgba(0, 0, 0, 0.8);
+  --clr-pr: #fff;
+
+  --ff-t: "Montserrat", sans-serif;
+  --ff-b: "Poppins", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  user-select: none;
+}
+
+body {
+  background-image: linear-gradient(var(--clr-bg1), var(--clr-bg2));
+  color: var(--clr-pr);
+  display: grid;
+  font-family: var(--ff-b);
+  min-height: 100vh;
+  place-items: center;
+}
+
+.app {
+  border: var(--clr-pr) 1px solid;
+  padding: 3em;
+}
+
+.app h1 {
+  text-align: center;
+  font-size: 3rem;
+}
+
+.app__subheading {
+  margin-bottom: 2em;
+}
+
+.app__list {
+  background-color: var(--clr-pr);
+  color: var(--clr-bg2);
+  padding: 0;
+}
+
+.list__item {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  cursor: pointer;
+}
+
+.list__item + .list__item {
+  border-top: 1px solid var(--clr-bg2);
+}
+
+.item__rank {
+  aspect-ratio: 1;
+  background-color: var(--clr-bg1);
+  width: 50px;
+  color: var(--clr-pr);
+  display: grid;
+  place-items: center;
+}
+
+.item__title {
+  width: 100%;
+  padding-left: 1em;
+}
+
+.item__icon {
+  padding-right: 1em;
+}
+
+.app__button {
+  background-color: var(--clr-bg1);
+  border-radius: 10em;
+  border: 0;
+  color: var(--clr-pr);
+  cursor: pointer;
+  display: block;
+  font-family: var(--ff-b);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 2em auto 0 auto;
+  padding: 0.5em 2em;
+  text-transform: uppercase;
+}
+
+.app__button:hover,
+.app__button:focus-visible {
+  background-color: var(--clr-pr);
+  color: var(--clr-bg1);
+}

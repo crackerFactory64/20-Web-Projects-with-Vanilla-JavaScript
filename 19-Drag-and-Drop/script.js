@@ -14,17 +14,44 @@ const top10 = [
   "The Lord of the Rings: Fellowship of the Ring",
 ];
 
-populateList();
+const listItemsEl = [];
 
-function populateList() {
+const shuffledList = shuffle([...top10]);
+
+populateList(shuffledList);
+
+function populateList(arr) {
   let rank = 1;
-  top10.forEach((film) => {
+  arr.forEach((film, index) => {
     let listItem = document.createElement("li");
     listItem.classList.add("list__item");
+    listItem.setAttribute("data-index", index);
     listItem.innerHTML = ` <h2 class="item__rank">${rank}</h2>
-    <h2 class="item__title">${film}</h2>
-    <p class="item__icon"><i class="fas fa-grip-lines"></i></p>`;
+    <div class="item__draggable" draggable="true">
+        <h2 class="item__title">${film}</h2>
+        <p class="item__icon"><i class="fas fa-grip-lines"></i></p>
+    </div>`;
     listEL.appendChild(listItem);
     rank++;
+    listItemsEl.push(listItem);
   });
+}
+
+function shuffle(array) {
+  var m = array.length,
+    t,
+    i;
+
+  // While there remain elements to shuffle…
+  while (m) {
+    // Pick a remaining element…
+    i = Math.floor(Math.random() * m--);
+
+    // And swap it with the current element.
+    t = array[m];
+    array[m] = array[i];
+    array[i] = t;
+  }
+
+  return array;
 }

@@ -66,13 +66,12 @@ body {
   place-items: center;
 }
 
-.item__title {
+.item__draggable {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 1em;
   width: 100%;
-  padding-left: 1em;
-}
-
-.item__icon {
-  padding-right: 1em;
 }
 
 .app__button {

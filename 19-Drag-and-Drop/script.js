@@ -24,10 +24,9 @@ const draggables = document.querySelectorAll(".item__draggable");
 
 function populateList(arr) {
   let rank = 1;
-  arr.forEach((film, index) => {
+  arr.forEach((film) => {
     let listItem = document.createElement("li");
     listItem.classList.add("list__item");
-    listItem.setAttribute("data-index", index);
     listItem.innerHTML = ` <h2 class="item__rank">${rank}</h2>
     <div class="item__draggable"  draggable="true" ondragover="event.preventDefault();" ondragenter="event.preventDefault();">
         <h2 class="item__title">${film}</h2>
@@ -90,16 +89,20 @@ draggables.forEach((el) => {
     }, 0);
     e.dataTransfer.setData("text/plain", e.target.innerText);
   });
+
   el.addEventListener("dragenter", (e) => {
     e.preventDefault();
     el.classList.add("item__draggable--over");
   });
+
   el.addEventListener("dragleave", () => {
     el.classList.remove("item__draggable--over");
   });
+
   el.addEventListener("dragend", () => {
     el.classList.remove("item__draggable--held");
   });
+
   el.addEventListener("drop", (e) => {
     data = e.dataTransfer.getData("text");
 

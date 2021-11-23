@@ -29,7 +29,7 @@ function populateList(arr) {
     listItem.classList.add("list__item");
     listItem.setAttribute("data-index", index);
     listItem.innerHTML = ` <h2 class="item__rank">${rank}</h2>
-    <div class="item__draggable" draggable="true">
+    <div class="item__draggable" draggable="true" ondragover="event.preventDefault();" ondragenter="event.preventDefault();">
         <h2 class="item__title">${film}</h2>
         <p class="item__icon"><i class="fas fa-grip-lines"></i></p>
     </div>`;
@@ -59,5 +59,42 @@ function shuffle(array) {
 }
 
 draggables.forEach((el) => {
-  el.addEventListener("dragstart", (e) => {});
+  el.addEventListener("dragstart", (e) => {
+    setTimeout(() => {
+      el.classList.add("item__draggable--held");
+    }, 0);
+    e.dataTransfer.setData("text/plain", e.target.innerText);
+  });
+  el.addEventListener("dragenter", (e) => {
+    e.preventDefault();
+    el.classList.add("item__draggable--over");
+  });
+  el.addEventListener("dragleave", () => {
+    el.classList.remove("item__draggable--over");
+  });
+  el.addEventListener("dragend", () => {
+    el.classList.remove("item__draggable--held");
+  });
+  el.addEventListener("drop", (e) => {
+    e.dataTransfer.dropEffect = "copy";
+    data = e.dataTransfer.getData("text");
+
+    if (e.target.classList.contains("item__draggable")) {
+      e.target.classList.remove("item__draggable--over");
+    } else {
+      e.target.parentNode.classList.remove("item__draggable--over");
+    }
+    replaceFilm(data, e);
+
+    el.childNodes[1].innerHTML = data;
+  });
 });
+
+function replaceFilm(film, e) {
+  const targetFilm = e.target.innerText;
+  draggables.forEach((el) => {
+    if (el.innerText === film) {
+      el.childNodes[1].innerHTML = targetFilm;
+    }
+  });
+}

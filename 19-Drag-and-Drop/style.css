@@ -50,7 +50,6 @@ body {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  cursor: pointer;
 }
 
 .list__item + .list__item {
@@ -68,10 +67,19 @@ body {
 
 .item__draggable {
   align-items: center;
+  cursor: grab;
   display: flex;
   justify-content: space-between;
   padding-inline: 1em;
   width: 100%;
+}
+
+.item__draggable--held {
+  opacity: 0.5;
+}
+
+.item__draggable--over {
+  border: var(--clr-bg2) dashed 5px;
 }
 
 .app__button {

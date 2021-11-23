@@ -82,6 +82,14 @@ body {
   border: var(--clr-bg2) dashed 5px;
 }
 
+.item__draggable--right {
+  color: green;
+}
+
+.item__draggable--wrong {
+  color: red;
+}
+
 .app__button {
   background-color: var(--clr-bg1);
   border-radius: 10em;

@@ -29,7 +29,7 @@ function populateList(arr) {
     listItem.classList.add("list__item");
     listItem.setAttribute("data-index", index);
     listItem.innerHTML = ` <h2 class="item__rank">${rank}</h2>
-    <div class="item__draggable" draggable="true" ondragover="event.preventDefault();" ondragenter="event.preventDefault();">
+    <div class="item__draggable"  draggable="true" ondragover="event.preventDefault();" ondragenter="event.preventDefault();">
         <h2 class="item__title">${film}</h2>
         <p class="item__icon"><i class="fas fa-grip-lines"></i></p>
     </div>`;
@@ -56,6 +56,31 @@ function shuffle(array) {
   }
 
   return array;
+}
+
+function replaceFilm(film, e) {
+  const targetFilm = e.target.innerText;
+  draggables.forEach((el) => {
+    if (el.innerText === film) {
+      el.childNodes[1].innerHTML = targetFilm;
+    }
+  });
+}
+
+function checkList() {
+  let list = document.querySelectorAll(".list__item");
+  let i = 0;
+  list.forEach((li) => {
+    let title = li.childNodes[3].childNodes[1];
+    title.classList.remove("item__draggable--right");
+    title.classList.remove("item__draggable--wrong");
+    if (title.innerHTML === top10[i]) {
+      title.classList.add("item__draggable--right");
+    } else {
+      title.classList.add("item__draggable--wrong");
+    }
+    i++;
+  });
 }
 
 draggables.forEach((el) => {
@@ -85,16 +110,10 @@ draggables.forEach((el) => {
       e.target.parentNode.classList.remove("item__draggable--over");
     }
     replaceFilm(data, e);
-
     el.childNodes[1].innerHTML = data;
   });
 });
 
-function replaceFilm(film, e) {
-  const targetFilm = e.target.innerText;
-  draggables.forEach((el) => {
-    if (el.innerText === film) {
-      el.childNodes[1].innerHTML = targetFilm;
-    }
-  });
-}
+checkBtn.addEventListener("click", () => {
+  checkList();
+});

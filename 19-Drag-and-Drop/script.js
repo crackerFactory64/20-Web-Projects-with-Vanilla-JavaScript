@@ -22,8 +22,6 @@ populateList(shuffledList);
 
 const draggables = document.querySelectorAll(".item__draggable");
 
-console.log(draggables);
-
 function populateList(arr) {
   let rank = 1;
   arr.forEach((film, index) => {

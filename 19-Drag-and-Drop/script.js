@@ -101,7 +101,6 @@ draggables.forEach((el) => {
     el.classList.remove("item__draggable--held");
   });
   el.addEventListener("drop", (e) => {
-    e.dataTransfer.dropEffect = "copy";
     data = e.dataTransfer.getData("text");
 
     if (e.target.classList.contains("item__draggable")) {

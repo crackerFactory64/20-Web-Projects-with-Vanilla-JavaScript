@@ -2,7 +2,7 @@ const msgEl = document.getElementById("msg");
 
 const number = Math.floor(Math.random() * 100) + 1;
 console.log(number);
-const listener = new webkitSpeechRecognition();
+const listener = new webkitSpeechRecognition() || new speechRecognition();
 listener.continuous = true;
 let result = "";
 let guesses = 0;

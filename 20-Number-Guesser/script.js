@@ -1,6 +1,7 @@
 const msgEl = document.getElementById("msg");
 
 const number = Math.floor(Math.random() * 100) + 1;
+console.log("target=" + number);
 const listener = new webkitSpeechRecognition() || new speechRecognition();
 let result = "";
 let guesses = 0;

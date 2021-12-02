@@ -1,20 +1,11 @@
 const msgEl = document.getElementById("msg");
 
 const number = Math.floor(Math.random() * 100) + 1;
-console.log(number);
 const listener = new webkitSpeechRecognition() || new speechRecognition();
-listener.continuous = true;
 let result = "";
 let guesses = 0;
 
 listener.start();
-listener.addEventListener("result", (e) => {
-  guesses++;
-  //assigns result the latest audio input
-  result = +e.results[e.results.length - 1][0].transcript;
-  console.log(result);
-  handleResult(result);
-});
 
 function handleResult(result) {
   let output = "";
@@ -50,3 +41,16 @@ function reset() {
 function tryOrTries() {
   return guesses == 1 ? "try" : "tries";
 }
+
+listener.addEventListener("result", (e) => {
+  guesses++;
+  //assigns result the latest audio input
+  result = +e.results[e.results.length - 1][0].transcript;
+  console.log(result);
+  handleResult(result);
+});
+
+//resets speech recognition when it ends, allowing multiple guesses
+listener.addEventListener("end", () => {
+  listener.start();
+});
